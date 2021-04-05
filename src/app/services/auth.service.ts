@@ -9,11 +9,11 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(`${environment.baseURL}/user/login`, { email, password });
+  signin(email: string, password: string): Observable<any> {
+    return this.http.post(`${environment.baseURL}/auth/signin`, { email, password });
   }
 
-  register(email: string, password: string): Observable<any> {
-    return this.http.post(`${environment.baseURL}/user`, { email, password });
+  signup(name: string, email: string, password: string): Observable<any> {
+    return this.http.post(`${environment.baseURL}/auth/signup`, { name, email, password });
   }
 }
