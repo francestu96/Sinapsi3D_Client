@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 
@@ -19,7 +20,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
@@ -29,7 +31,8 @@ export class SignupComponent implements OnInit {
         this.authService.signup(this.name, this.email, this.password).subscribe(
           (data) => {
             this.storageService.saveToken(data.access_token);
-            this.storageService.saveUser(data.id_token);
+            this.storageService.saveIdentity(data.id_token);
+            this.router.navigate([`/home`]);
           },
           (err) => {
             this.errorMessage = err.error.message;
