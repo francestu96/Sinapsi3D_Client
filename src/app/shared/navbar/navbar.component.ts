@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
 import { StorageService } from 'src/app/services/storage.service';
+import { UserModel } from 'src/app/models/UserModel';
 
 @Component({
   selector: 'app-navbar',
@@ -39,7 +40,8 @@ export class NavbarComponent implements OnInit {
     this.location.subscribe((ev: PopStateEvent) => {
       this.lastPoppedUrl = ev.url;
     });
-    this.storageSerice.loggedEmitter.subscribe(() => this.identity = this.storageSerice.getIdentity());
+    this.storageSerice.authEmitter.subscribe(() => this.identity = this.storageSerice.getIdentity());
+    this.identity = this.storageSerice.getIdentity();
   }
 
   signOut() {

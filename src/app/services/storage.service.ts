@@ -1,5 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { UserModel } from '../models/UserModel';
 import { JwtService } from './jwt.service';
 
 const ACCESS_TOKEN = 'access_token';
@@ -9,7 +10,7 @@ const ID_TOKEN = 'id_token';
   providedIn: 'root'
 })
 export class StorageService {
-  loggedEmitter: EventEmitter<void> = new EventEmitter();
+  authEmitter: EventEmitter<void> = new EventEmitter();
   
   constructor(private jwtService: JwtService) { }
 
@@ -25,12 +26,12 @@ export class StorageService {
   public saveIdentity(idToken: any): void {
     localStorage.removeItem(ID_TOKEN);
     localStorage.setItem(ID_TOKEN, JSON.stringify(idToken));
-    this.loggedEmitter.emit();
+    this.authEmitter.emit();
   }
 
   public getIdentity(): UserModel {
     const token = localStorage.getItem(ID_TOKEN);
-    if (!token){
+    if (!token) {
       return null;
     }
     const identity = this.jwtService.decodeToken(localStorage.getItem(ID_TOKEN));
@@ -43,6 +44,6 @@ export class StorageService {
 
   public signOut(): void {
     localStorage.clear();
-    this.loggedEmitter.emit();
+    this.authEmitter.emit();
   }
 }

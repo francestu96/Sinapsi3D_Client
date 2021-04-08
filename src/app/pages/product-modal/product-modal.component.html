@@ -1,0 +1,24 @@
+<div fxLayout="row">
+	<div fxFlex="90">
+		<h3 style="font-weight: bold;">{{this.product.name}}</h3>
+	</div>
+	<div fxFlex="10" fxLayoutAlign="end center">
+		<a mat-icon-button color="warn" (click)="this.dialogRef.close()">
+			<mat-icon>close</mat-icon>
+		</a>
+	</div>
+</div>
+
+<div fxLayout="row">
+	<!-- <img fxFlex="48" [src]="imageBaseUrl + product.images[0]"> -->
+	<div fxFlex="48" #container>
+		<ng-image-slider fxFlex [images]="this.images" [manageImageRatio]="false" [imageSize]="{width: container.offsetWidth, height: container.offsetWidth, space:0}"></ng-image-slider>
+	</div>
+	<div fxFlex="48" fxLayoutAlign="center center">
+		<p fxLayoutAlign="center" class="text-muted">{{product.description}}</p>
+	</div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center">
+	<span class="text-muted mt-4" style="font-weight: bold;">Prezzo al singolo pezzo:&ensp;<u>{{product.price}}€</u></span>
+</div>

@@ -1,0 +1,24 @@
+.zoom:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+@media (max-width: 320px) {
+  h3.resizable-text {
+    font-weight: bold;
+    font-size: 5px;
+  }
+}
+
+@media (max-width: 1024px) {
+    h3.resizable-text {
+      font-weight: bold;
+      font-size: 10px;
+    }
+  }
+
+@media (min-width: 1440px) {
+  h3.resizable-text {
+    font-weight: bold;
+  }
+}

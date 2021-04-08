@@ -3,18 +3,21 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SignupComponent } from './pages/signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { AuthGuardService } from './services/auth.guard.service';
 
-const routes: Routes =[
+const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'user-profile', component: ProfileComponent },
     { path: 'register', component: SignupComponent },
     { path: 'landing', component: LandingComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'cart/:userId', component: CartComponent, canActivate: [AuthGuardService] },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -22,10 +25,7 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true,
-      onSameUrlNavigation: 'reload'
-    })
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [
   ],

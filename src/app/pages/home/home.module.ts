@@ -11,8 +11,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { HomeComponent } from './home.component';
 
-import { SectionsModule } from '../sections/sections.module';
+import { SectionsModule } from '../../sections/sections.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ProductModalComponent } from '../product-modal/product-modal.component';
+import { ProductModalModule } from '../product-modal/product-modal.module';
 
 @NgModule({
     imports: [
@@ -26,10 +28,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatInputModule,
         MatFormFieldModule,
         MatButtonModule,
-        MatTooltipModule
+        MatTooltipModule,
+        ProductModalModule
     ],
     declarations: [ HomeComponent ],
     exports: [ HomeComponent ],
-    providers: []
+    entryComponents: [ ProductModalComponent ]
 })
 export class HomeModule { }

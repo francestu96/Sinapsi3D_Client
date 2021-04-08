@@ -6,19 +6,22 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './pages/signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-import { HomeModule } from './home/home.module';
-import { LoginComponent } from './login/login.component';
+import { HomeModule } from './pages/home/home.module';
+import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './services/interceptor/auth.interceptor';
+import { CartComponent } from './pages/cart/cart.component';
+import { AuthGuardService } from './services/auth.guard.service';
+import { CartModule } from './pages/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -37,12 +40,13 @@ import { authInterceptorProviders } from './services/interceptor/auth.intercepto
     RouterModule,
     AppRoutingModule,
     HomeModule,
+    CartModule,
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
     MatIconModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
