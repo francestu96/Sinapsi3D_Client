@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthProxy } from 'src/app/services/proxy/auth.proxy';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   focus2: boolean;
 
   constructor(
-    private authService: AuthService,
+    private authProxy: AuthProxy,
     private storageService: StorageService,
     private router: Router
   ) {}
@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     if (this.isValidForm()) {
-        this.authService.signup(this.name, this.email, this.password).subscribe(
+        this.authProxy.signup(this.name, this.email, this.password).subscribe(
           (data) => {
             this.storageService.saveToken(data.access_token);
             this.storageService.saveIdentity(data.id_token);

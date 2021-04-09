@@ -10,7 +10,6 @@
 </div>
 
 <div fxLayout="row">
-	<!-- <img fxFlex="48" [src]="imageBaseUrl + product.images[0]"> -->
 	<div fxFlex="48" #container>
 		<ng-image-slider fxFlex [images]="this.images" [manageImageRatio]="false" [imageSize]="{width: container.offsetWidth, height: container.offsetWidth, space:0}"></ng-image-slider>
 	</div>
@@ -20,5 +19,5 @@
 </div>
 
 <div fxLayout="row" fxLayoutAlign="center">
-	<span class="text-muted mt-4" style="font-weight: bold;">Prezzo al singolo pezzo:&ensp;<u>{{product.price}}€</u></span>
+	<span class="text-muted mt-4" style="font-weight: bold;">Prezzo al singolo pezzo:&ensp;<u>{{product.price | number : '1.2-2'}}€</u></span>
 </div>

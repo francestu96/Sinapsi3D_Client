@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 	templateUrl: './product-modal.component.html',
 })
 export class ProductModalComponent {
-	public imageBaseUrl = environment.baseURL + "/image/";
 	public images: any[] = [];
 	public product: any;
 
@@ -19,8 +18,8 @@ export class ProductModalComponent {
 		this.product = data;
 		for (var filename of this.product.images){
 			this.images.push({ 
-				image: environment.baseURL + "/image/" + filename,
-				thumbImage: environment.baseURL + "/image/" + filename,
+				image: environment.baseURL + "/image/original/" + filename,
+				thumbImage: environment.baseURL + "/image/thumb/" + filename,
 			});
 		}
 	}

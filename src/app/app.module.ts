@@ -22,6 +22,7 @@ import { authInterceptorProviders } from './services/interceptor/auth.intercepto
 import { CartComponent } from './pages/cart/cart.component';
 import { AuthGuardService } from './services/auth.guard.service';
 import { CartModule } from './pages/cart/cart.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CartModule } from './pages/cart/cart.module';
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [authInterceptorProviders, AuthGuardService],
   bootstrap: [AppComponent]

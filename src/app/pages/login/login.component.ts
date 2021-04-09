@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthProxy } from 'src/app/services/proxy/auth.proxy';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   focus1: boolean;
 
   constructor(
-    private authService: AuthService,
+    private authProxy: AuthProxy,
     private storageService: StorageService,
     private router: Router,
   ) {}
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'Inserire credenziali valide';
       return;
     }
-    this.authService.signin(this.email, this.password).subscribe((data) => {
+    this.authProxy.signin(this.email, this.password).subscribe((data) => {
         this.storageService.saveToken(data.access_token);
         this.storageService.saveIdentity(data.id_token);
         this.router.navigate(['/home']);

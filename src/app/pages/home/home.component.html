@@ -56,22 +56,21 @@
       <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;"
         fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
         <div fxLayout="row">
-          <img fxFlex="48" (click)="this.openDialog(product)" [src]="imageBaseUrl + product.images[0]"
-            alt="Raised circle image" class="img-fluid rounded-circle shadow-lg m-1 mr-4 zoom">
+          <img fxFlex="48" (click)="this.openDialog(product)" [src]="imageBaseUrl + product.images[0]" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg m-1 mr-4 zoom">
           <div fxFlex="48" fxLayout="column" class="p-4">
             <div fxFlex fxLayout="column">
-              <h3 fxFlex class="resizable-text">{{product.name}}</h3>
+              <h3 fxFlex class="resizable-text">{{ product.name }}</h3>
               <p fxFlex class="text-muted">
-                {{product.description}}
+                {{ product.description }}
               </p>
             </div>
             <div fxFlex fxLayoutAlign="end end" class="p-0">
               <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
                 <mat-label fxFlex>Quantità</mat-label>
-                <input fxFlex matInput value="0" type="number" style="text-align: right">
+                <input fxFlex matInput [(ngModel)]='this.quantities[product._id]' type="number" min="0" style="text-align: right">
               </mat-form-field>
               <div fxFlex="5"></div>
-              <button fxFlex="20" mat-raised-button color="primary" matTooltip="Aggiungi al carrello">
+              <button fxFlex="20" (click)="this.addToCart(product._id)" mat-raised-button color="primary" matTooltip="Aggiungi al carrello">
                 <mat-icon>add_shopping_cart</mat-icon>
               </button>
             </div>
