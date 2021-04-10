@@ -23,4 +23,8 @@ export class CartProxy {
   remove(productId: string): Observable<any> {
     return this.http.delete(`${environment.baseURL}/cart/${this.storageService.getIdentity().id}/${productId}`);
   }
+
+  delete(): Observable<any> {
+    return this.http.delete(`${environment.baseURL}/cart/${this.storageService.getIdentity().id}`);
+  }
 }

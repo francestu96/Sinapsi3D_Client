@@ -1,4 +1,7 @@
-<main fxLayout="column">
+<main fxLayout="column" style="position: relative;">
+    <div *ngIf="isPaymentLoading" style="position: absolute; z-index: 1; top:0px; bottom:0px; left:0px; right:0px; background: rgba(0, 0, 0, 0.25);">
+        <mat-spinner style="margin: auto; top:40%"></mat-spinner>
+    </div>
     <section fxFlex style="height: 230px; background: linear-gradient(150deg, #281483 15%, #8f6ed5 70%, #d782d9)">
         <span
             style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
@@ -44,13 +47,19 @@
         </ng-container>
     </div>
 
-    <div fxLayout="column" style="width: 80%;font-weight: bold;">
-        <h3 class="mt-2 text-muted" fxLayoutAlign="end center" fxFlex="20">Prezzo totale:&nbsp;<u>{{totalPrice | number : '1.2-2'}}€</u></h3>
-        <div fxLayoutAlign="end center">
-            <button fxFlex="20" mat-raised-button color="primary" matTooltip="Procedi al pagamento">
-                Procedi al pagamento
-                <mat-icon class="ml-2">account_balance_wallet</mat-icon>
-            </button>
+    <div *ngIf="totalPrice > 0; else empty" fxLayout="column" style="width: 80%;font-weight: bold;">
+        <h3 class="mt-4 text-muted" fxLayoutAlign="end center" fxFlex="20">Prezzo totale:&nbsp;<u>{{totalPrice | number : '1.2-2'}}€</u></h3>
+        <div class="mt-2" fxLayoutAlign="end center">
+            <wm-paypal 
+                [style.width.px]="220" [height]="35" layout="vertical" shape="pill" color="gold" label="pay"
+                [request]="createOrder()" (cancel)="onCancel($event)" (error)="onError($event)"></wm-paypal>
         </div>
     </div>
+    
+    <ng-template #empty>
+        <div fxLayout="column" fxLayoutAlign="center center" class="mt-4">
+            <h2 class="text-muted">Ancora nessun oggetto nel carrello</h2>
+            <p class="text-muted">Vai alla sezione <a href="/home">Prodotti</a> per comprare qualcosa!</p>
+        </div>
+    </ng-template>
 </main>

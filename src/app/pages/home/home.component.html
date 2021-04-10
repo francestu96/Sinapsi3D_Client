@@ -59,8 +59,8 @@
           <img fxFlex="48" (click)="this.openDialog(product)" [src]="imageBaseUrl + product.images[0]" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg m-1 mr-4 zoom">
           <div fxFlex="48" fxLayout="column" class="p-4">
             <div fxFlex fxLayout="column">
-              <h3 fxFlex class="resizable-text">{{ product.name }}</h3>
-              <p fxFlex class="text-muted">
+              <h3 class="resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">{{ product.name }}</h3>
+              <p class="text-muted"  style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
                 {{ product.description }}
               </p>
             </div>
@@ -87,7 +87,7 @@
           <div fxFlex="48" fxLayout="column" class="p-4">
             <div fxFlex fxLayout="column">
               <h3 fxFlex class="resizable-text">Header with small subtitle</h3>
-              <p fxFlex class="text-muted">
+              <p class="text-muted" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
                 According to the National Oceanic and Atmospheric asddefargrae grea grea rgae rgae aregea
               </p>
             </div>

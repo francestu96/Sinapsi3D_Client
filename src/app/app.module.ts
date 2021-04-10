@@ -19,7 +19,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './services/interceptor/auth.interceptor';
-import { CartComponent } from './pages/cart/cart.component';
 import { AuthGuardService } from './services/auth.guard.service';
 import { CartModule } from './pages/cart/cart.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';

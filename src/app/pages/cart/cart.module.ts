@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CartComponent } from './cart.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PayPalModule } from 'src/app/shared/paypal';
 
 @NgModule({
     imports: [
@@ -29,10 +31,18 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatButtonModule,
         MatTooltipModule,
         NgImageSliderModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MatButtonModule,
+
+        PayPalModule.init({
+            clientId: "sb", // Using sandbox for testing purposes only
+            currency: "EUR",
+            integrationDate: "2021-04-10"
+        })
     ],
-    declarations: [ CartComponent ],
-    exports: [ CartComponent ],
-    providers: []
+    declarations: [ CartComponent ]
 })
 export class CartModule { }

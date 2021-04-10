@@ -1,20 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { CartModel } from 'src/app/models/CartModel';
+import { Component, forwardRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductModel } from 'src/app/models/ProductModel';
 import { MessageService } from 'src/app/services/message.service';
 import { CartProxy } from 'src/app/services/proxy/cart.proxy';
+import { OrderProxy } from 'src/app/services/proxy/order.proxy';
+import { StorageService } from 'src/app/services/storage.service';
+import { Item, OnApproveActions, OnApproveData, OnCancelData, OnErrorData, OrderRequest, PayPalProcessor, PurchaseUnitRequest } from 'src/app/shared/paypal';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html'
+  templateUrl: './cart.component.html',
+  providers: [ { provide: PayPalProcessor, useExisting: forwardRef(() => CartComponent) }]
 })
 export class CartComponent implements OnInit {
     public imageBaseUrl = environment.baseURL + "/image/thumb/";
+    public isPaymentLoading = false;
     public pageStruct: PageStruct[] = [];
     public totalPrice: number = 0;
     
-    constructor(private cartProxy: CartProxy, private messageService: MessageService) { }
+    constructor(
+        private router: Router,
+        private cartProxy: CartProxy, 
+        private orderProxy: OrderProxy,
+        private messageService: MessageService, 
+        private storageService: StorageService) { }
 
     ngOnInit(): void{
         this.cartProxy.get().subscribe(cart => {
@@ -76,6 +86,56 @@ export class CartComponent implements OnInit {
         )
     }
 
+    createOrder(): OrderRequest {
+        var purchasedUnits: PurchaseUnitRequest[] = [];
+
+        for (var purchasedUnit of this.pageStruct){
+            purchasedUnits.push({
+                reference_id: purchasedUnit.product._id,
+                amount: { 
+                    currency_code: "EUR", 
+                    value: (purchasedUnit.product.price * purchasedUnit.quantity).toString(), 
+                    breakdown: { item_total: { currency_code: "EUR", value: (purchasedUnit.product.price * purchasedUnit.quantity).toString() } } 
+                },
+                items: [{
+                    name: purchasedUnit.product.name,
+                    quantity: purchasedUnit.quantity.toString(),
+                    unit_amount: { currency_code: "EUR", value: purchasedUnit.product.price.toString() }
+                }]
+            });
+        }
+        return {
+            intent: 'CAPTURE', 
+            payer: {
+                email_address: this.storageService.getIdentity().email
+            },
+            purchase_units: purchasedUnits
+        }
+    }
+
+    async onApprove(_: OnApproveData, actions: OnApproveActions): Promise<void> {   
+        this.isPaymentLoading = true; 
+        const details = await actions.order.capture();
+        this.isPaymentLoading = false;
+
+        this.orderProxy.create(details).subscribe(
+            () => {
+                this.cartProxy.delete().subscribe(error => this.messageService.error(error.message));
+                this.router.navigate(['/home']);
+                this.messageService.success("Ordine effettuato con successo!");
+            },
+            error => this.messageService.error(error.message)
+        );
+    }
+    
+    onCancel(_: OnCancelData): void {    
+        this.messageService.success("Transazione cancellata");
+    }
+
+    onError(data: OnErrorData): void {    
+        this.messageService.error(data);
+    }
+    
     private refreshTotalPrice(): void{
         var aux = 0;
         for (var item of this.pageStruct){

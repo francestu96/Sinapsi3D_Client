@@ -3,7 +3,6 @@ import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductModel } from 'src/app/models/ProductModel';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
 import { ProductProxy } from 'src/app/services/proxy/product.proxy';
