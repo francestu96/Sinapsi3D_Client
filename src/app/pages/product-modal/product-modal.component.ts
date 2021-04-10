@@ -19,7 +19,7 @@ export class ProductModalComponent {
 		for (var filename of this.product.images){
 			this.images.push({ 
 				image: environment.baseURL + "/image/original/" + filename,
-				thumbImage: environment.baseURL + "/image/thumb/" + filename,
+				thumbImage: environment.baseURL + "/image/thumb/" + filename
 			});
 		}
 	}

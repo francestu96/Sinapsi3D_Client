@@ -6,26 +6,35 @@
     </section>
 
     <div fxLayout="column" fxLayoutAlign="space-around center">
-        <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
-            <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;width: 50%;">
+        <ng-container *ngFor="let item of this.pageStruct">
+            <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;width: 50%;position: relative;">
+                <div *ngIf="item.isLoading" style="position: absolute; z-index: 1; top:0px; bottom:0px; left:0px; right:0px; background: rgba(0, 0, 0, 0.15);">
+                    <mat-spinner style="margin: auto; top:40%"></mat-spinner>
+                </div>
+                
                 <div fxLayout="row">
-                    <img fxFlex="48" (click)="this.openDialog()" src="./assets/img/theme/team-4-800x800.jpg"
-                        alt="Raised circle image" class="img-fluid rounded-circle shadow-lg m-1 mr-4 zoom">
+		            <div fxFlex="48" #container>
+                        <ng-image-slider fxFlex 
+                            [images]="item.images" 
+                            [manageImageRatio]="false" 
+                            [imageSize]="{width: container.offsetWidth, height: container.offsetWidth, space:0}">
+                        </ng-image-slider>
+                    </div>
                     <div fxFlex="48" fxLayout="column" class="p-4">
                         <div fxFlex fxLayout="column">
-                            <h3 fxFlex class="resizable-text">Header with small subtitle</h3>
-                            <p fxFlex class="text-muted">
-                                According to the National Oceanic and Atmospheric asddefargrae grea grea rgae rgae
-                                aregea
-                            </p>
+                            <h3 fxFlex class="resizable-text">{{item.product.name}}</h3>
+                            <p fxFlex class="text-muted">{{item.product.description}}</p>
                         </div>
                         <div fxFlex fxLayoutAlign="end end" class="p-0">
+                            <div fxFlex fxLayoutAlign="start">
+                                Prezzo:&nbsp;<u>{{item.product.price | number : '1.2-2'}}€</u>
+                            </div>
                             <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
                                 <mat-label fxFlex>Quantità</mat-label>
-                                <input fxFlex matInput value="0" type="number" style="text-align: right">
+                                <input fxFlex matInput [(ngModel)]='item.quantity' (change)="quantityChanged(item.product._id)" min="0" type="number" style="text-align: right">
                             </mat-form-field>
                             <div fxFlex="5"></div>
-                            <button fxFlex="20" mat-raised-button color="primary" matTooltip="Rimuovi al carrello">
+                            <button fxFlex="20" mat-raised-button color="primary" matTooltip="Rimuovi al carrello" (click)="remove(item)">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </div>
@@ -36,7 +45,7 @@
     </div>
 
     <div fxLayout="column" style="width: 80%;font-weight: bold;">
-        <h3 class="mt-2 text-muted" fxLayoutAlign="end center" fxFlex="20">Prezzo totale:&nbsp;<u>50,00€</u></h3>
+        <h3 class="mt-2 text-muted" fxLayoutAlign="end center" fxFlex="20">Prezzo totale:&nbsp;<u>{{totalPrice | number : '1.2-2'}}€</u></h3>
         <div fxLayoutAlign="end center">
             <button fxFlex="20" mat-raised-button color="primary" matTooltip="Procedi al pagamento">
                 Procedi al pagamento

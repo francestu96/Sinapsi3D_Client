@@ -25,4 +25,13 @@ export class MessageService {
         });
     }
 
+    genericError(): MatSnackBarRef<TextOnlySnackBar> {
+        return this.snackBar.open("Errore: se l'errore persiste, sarebbe gentile da parte vostra segnalare l'errore ai nostri contatti. Grazie", "Chiudi", {
+            duration: 5000,
+            horizontalPosition: 'right',
+            verticalPosition: 'bottom',
+            panelClass: ['error-snackbar']
+        });
+    }
+
 }

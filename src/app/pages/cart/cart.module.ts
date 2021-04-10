@@ -12,6 +12,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SectionsModule } from '../../sections/sections.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CartComponent } from './cart.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
     imports: [
@@ -25,7 +27,9 @@ import { CartComponent } from './cart.component';
         MatInputModule,
         MatFormFieldModule,
         MatButtonModule,
-        MatTooltipModule
+        MatTooltipModule,
+        NgImageSliderModule,
+        MatProgressSpinnerModule
     ],
     declarations: [ CartComponent ],
     exports: [ CartComponent ],

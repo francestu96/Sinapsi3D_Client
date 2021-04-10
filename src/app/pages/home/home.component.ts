@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
     addToCart(productId: string): void {
         if(this.quantities[productId] > 0) {
-            this.cartProxy.addToCart(productId, this.quantities[productId]).subscribe(
+            this.cartProxy.addUpdate(productId, this.quantities[productId]).subscribe(
                 cart => {
                     const productName = cart.products.map(x => x.product).filter(x => x._id === productId)[0].name;
                     const snackBarRef = this.messageService.success("\"" + productName + "\" aggiunto!", "Vai al carrello");
