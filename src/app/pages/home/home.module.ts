@@ -11,11 +11,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { HomeComponent } from './home.component';
 
-import { SectionsModule } from '../../sections/sections.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 import { ProductModalModule } from '../product-modal/product-modal.module';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     imports: [
@@ -23,7 +21,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         BrowserModule,
         FormsModule,
         RouterModule,
-        SectionsModule,
         FlexLayoutModule,
         MatIconModule,
         MatInputModule,

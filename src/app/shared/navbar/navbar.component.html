@@ -16,8 +16,7 @@
             </a>
           </div>
           <div class="col-6 collapse-close">
-            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
-                  [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
               <span></span>
               <span></span>
             </button>
@@ -25,33 +24,60 @@
         </div>
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-        <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
-            <i class="fa fa-facebook-square"></i>
-            <span class="nav-link-inner--text d-lg-none">Facebook</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
-            <i class="fa fa-instagram"></i>
-            <span class="nav-link-inner--text d-lg-none">Instagram</span>
-          </a>
+        <li class="nav-item" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '15px'}">
+            <a class="nav-link" href="/#/products">Acquista</a>
         </li>
       </ul>
       <ul *ngIf="!this.identity; else signedin" class="navbar-nav align-items-lg-center ml-lg-auto">
-        <li class="nav-item d-none d-lg-block ml-lg-2">
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.youtube.com/channel/UCkIlnm3o_d7PmxoOMnYXk7w" target="_blank" data-toggle="tooltip" title="Follow us on YouTube">
+              <i class="fa fa-youtube"></i>
+              <span class="nav-link-inner--text d-lg-none">YouTube</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.instagram.com/sinapsi3d/?hl=it" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+              <i class="fa fa-instagram"></i>
+              <span class="nav-link-inner--text d-lg-none">Instagram</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.facebook.com/Sinapsi3d/" target="_blank" data-toggle="tooltip" title="Follow us on Facebook">
+              <i class="fa fa-facebook-square"></i>
+              <span class="nav-link-inner--text d-lg-none">Facebook</span>
+            </a>
+          </li>
+        <li class="nav-item d-lg-block ml-lg-2" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '10px'}">
           <button [routerLink]="['/login']" mat-raised-button>Accedi <mat-icon>login</mat-icon></button> 
         </li>
-        <li class="nav-item d-none d-lg-block ml-lg-2">
+        <li class="nav-item d-lg-block ml-lg-2">
           <button [routerLink]="['/register']" mat-raised-button color="primary">Registrati<mat-icon class="ml-2">person_add_alt_1</mat-icon></button> 
         </li>
       </ul>
       <ng-template #signedin>
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-          <li class="nav-item" style="padding-bottom:8px">
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://www.youtube.com/channel/UCkIlnm3o_d7PmxoOMnYXk7w" target="_blank" data-toggle="tooltip" title="Follow us on YouTube">
+                  <i class="fa fa-youtube"></i>
+                  <span class="nav-link-inner--text d-lg-none">YouTube</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://www.instagram.com/sinapsi3d/?hl=it" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+                    <i class="fa fa-instagram"></i>
+                    <span class="nav-link-inner--text d-lg-none">Instagram</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="https://www.facebook.com/Sinapsi3d/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+                    <i class="fa fa-facebook-square"></i>
+                    <span class="nav-link-inner--text d-lg-none">Facebook</span>
+                </a>
+                </li>
+          <li class="nav-item ml-3">
             <span style="color: rgba(255, 255, 255, 0.95); font-size: 0.9rem;">Bentornato <span style="font-style: italic;font-weight: bold;">{{this.identity.name}}</span></span>
           </li>
-          <li class="nav-item profile-icon" ngbDropdown placement="bottom-right">
+          <li class="nav-item profile-icon" ngbDropdown placement="bottom-right" style="padding-top: 8px;">
             <a class="nav-link nav-link-icon no-caret" id="navbar-default_dropdown_1" ngbDropdownToggle>
               <mat-icon>account_circle</mat-icon>
             </a>
@@ -60,7 +86,7 @@
                 <span>Carrello</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_cart</mat-icon>
               </a>
-              <a class="dropdown-item">
+              <a [routerLink]="['/order/' + this.identity.id]" class="dropdown-item">
                 <span>I miei ordini</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
               </a>

@@ -8,13 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { ProductComponent } from './product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CartComponent } from './cart.component';
-import { NgImageSliderModule } from 'ng-image-slider';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PayPalModule } from 'src/app/shared/paypal';
+import { ProductModalComponent } from '../product-modal/product-modal.component';
+import { ProductModalModule } from '../product-modal/product-modal.module';
 
 @NgModule({
     imports: [
@@ -28,19 +25,10 @@ import { PayPalModule } from 'src/app/shared/paypal';
         MatFormFieldModule,
         MatButtonModule,
         MatTooltipModule,
-        NgImageSliderModule,
-        MatProgressSpinnerModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        FlexLayoutModule,
-        MatButtonModule,
-
-        PayPalModule.init({
-            clientId: "sb", // Using sandbox for testing purposes only
-            currency: "EUR",
-            integrationDate: "2021-04-10"
-        })
+        ProductModalModule
     ],
-    declarations: [ CartComponent ]
+    declarations: [ ProductComponent ],
+    exports: [ ProductComponent ],
+    entryComponents: [ ProductModalComponent ]
 })
-export class CartModule { }
+export class ProductModule { }

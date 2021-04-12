@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
 
     ngOnInit(): void{
         this.cartProxy.get().subscribe(cart => {
-            for (var item of cart.products){
+            for (var item of cart?.products){
                 var currentImages = [];
                 for (var filename of item.product.images){
                     currentImages.push({
@@ -116,13 +116,14 @@ export class CartComponent implements OnInit {
     async onApprove(_: OnApproveData, actions: OnApproveActions): Promise<void> {   
         this.isPaymentLoading = true; 
         const details = await actions.order.capture();
+        details.user_id = this.storageService.getIdentity().id;
         this.isPaymentLoading = false;
 
         this.orderProxy.create(details).subscribe(
             () => {
                 this.cartProxy.delete().subscribe(error => this.messageService.error(error.message));
                 this.router.navigate(['/home']);
-                this.messageService.success("Ordine effettuato con successo!");
+                this.messageService.success("Ordine effettuato con successo. Riceverai una mail con maggiori istruzioni!");
             },
             error => this.messageService.error(error.message)
         );

@@ -10,14 +10,18 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { AuthGuardService } from './services/auth.guard.service';
+import { ProductComponent } from './pages/product/product.component';
+import { OrderComponent } from './pages/order/order.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'products', component: ProductComponent },
     { path: 'user-profile', component: ProfileComponent },
     { path: 'register', component: SignupComponent },
     { path: 'landing', component: LandingComponent },
     { path: 'login', component: LoginComponent },
     { path: 'cart/:userId', component: CartComponent, canActivate: [AuthGuardService] },
+    { path: 'order/:userId', component: OrderComponent, canActivate: [AuthGuardService] },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

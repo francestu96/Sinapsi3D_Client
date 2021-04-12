@@ -1,0 +1,63 @@
+<main fxLayout="column" style="position: relative;">
+    <section fxFlex style="height: 230px; background: linear-gradient(150deg, #281483 15%, #8f6ed5 70%, #d782d9)">
+        <span
+            style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
+        <h2 style="text-align: center;font-weight: bold;color: white;">Prodotti</h2>
+    </section>
+
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
+    <ng-container *ngFor="let product of this.products">
+      <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;"
+        fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+        <div fxLayout="row">
+          <img fxFlex="48" (click)="this.openDialog(product)" [src]="imageBaseUrl + product.images[0]" alt="Raised circle image" class="img-fluid rounded-circle shadow-lg m-1 mr-4 zoom">
+          <div fxFlex="48" fxLayout="column" class="p-4">
+            <div fxFlex fxLayout="column">
+              <h3 class="resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">{{ product.name }}</h3>
+              <p class="text-muted"  style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
+                {{ product.description }}
+              </p>
+            </div>
+            <div fxFlex fxLayoutAlign="end end" class="p-0">
+              <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
+                <mat-label fxFlex>Quantità</mat-label>
+                <input fxFlex matInput [(ngModel)]='this.quantities[product._id]' type="number" min="0" style="text-align: right">
+              </mat-form-field>
+              <div fxFlex="5"></div>
+              <button fxFlex="20" (click)="this.addToCart(product._id)" mat-raised-button color="primary" matTooltip="Aggiungi al carrello">
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+      <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;"
+        fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+        <div fxLayout="row">
+          <img fxFlex="48" (click)="this.openDialog()" src="./assets/img/theme/team-4-800x800.jpg"
+            alt="Raised circle image" class="img-fluid rounded-circle shadow-lg m-1 mr-4 zoom">
+          <div fxFlex="48" fxLayout="column" class="p-4">
+            <div fxFlex fxLayout="column">
+              <h3 fxFlex class="resizable-text">Header with small subtitle</h3>
+              <p class="text-muted" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
+                According to the National Oceanic and Atmospheric asddefargrae grea grea rgae rgae aregea
+              </p>
+            </div>
+            <div fxFlex fxLayoutAlign="end end" class="p-0">
+              <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
+                <mat-label fxFlex>Quantità</mat-label>
+                <input fxFlex matInput value="0" type="number" style="text-align: right">
+              </mat-form-field>
+              <div fxFlex="5"></div>
+              <button fxFlex="20" mat-raised-button color="primary" matTooltip="Aggiungi al carrello">
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</main>

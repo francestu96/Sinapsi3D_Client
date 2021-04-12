@@ -15,6 +15,7 @@ export interface OrderResponse {
   create_time: string;
   update_time: string;
   id: string;
+  user_id: string;
   intent: OrderIntent;
   payer: Payer;
   purchase_units: PurchaseUnitRequest[];

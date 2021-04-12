@@ -22,6 +22,8 @@ import { authInterceptorProviders } from './services/interceptor/auth.intercepto
 import { AuthGuardService } from './services/auth.guard.service';
 import { CartModule } from './pages/cart/cart.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProductModule } from './pages/product/product.module';
+import { OrderModule } from './pages/order/order.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RouterModule,
     AppRoutingModule,
     HomeModule,
+    ProductModule,
     CartModule,
+    OrderModule,
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
