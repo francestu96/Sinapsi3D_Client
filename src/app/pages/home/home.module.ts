@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { LightboxModule } from 'ngx-lightbox';
 
 import { HomeComponent } from './home.component';
 
@@ -27,7 +30,10 @@ import { ProductModalModule } from '../product-modal/product-modal.module';
         MatFormFieldModule,
         MatButtonModule,
         MatTooltipModule,
-        ProductModalModule
+        ProductModalModule,
+        MatDividerModule,
+        MatGridListModule,
+        LightboxModule
     ],
     declarations: [ HomeComponent ],
     exports: [ HomeComponent ],

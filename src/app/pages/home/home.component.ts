@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { Lightbox } from 'ngx-lightbox';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -8,7 +9,30 @@ import { environment } from '../../../environments/environment';
 })
 
 export class HomeComponent {
-    constructor() {}
+    breakpoint: number;
+    album = [];
+
+    constructor(private lightbox: Lightbox) {
+        this.breakpoint = (window.innerWidth <= 1000) ? ((window.innerWidth <= 700) ? 1 : 2) : 4;
+        for (let i = 1; i <= 8; i++) {    
+            this.album.push({
+                src: '../../../assets/img/brand/home-pic-3.jpg',
+                thumb: '../../../assets/img/brand/home-pic-3.jpg'
+            });
+        }
+    }
+    
+    onResize(event: any) {
+      this.breakpoint = (event.target.innerWidth <= 1000) ? ((event.target.innerWidth <= 700) ? 1 : 2) : 4;
+    }
+
+    open(index: number): void {
+        this.lightbox.open(this.album, index);
+    }
+     
+    close(): void {
+        this.lightbox.close();
+    }
 
     public isElementVisible(element: any): boolean {
         var top = element.offsetTop;
@@ -28,5 +52,5 @@ export class HomeComponent {
           (top + height) > window.pageYOffset &&
           (left + width) > window.pageXOffset
         );
-      }
+    }
 }
