@@ -25,11 +25,11 @@
                     </div>
                     <div fxFlex="48" fxLayout="column" class="p-4">
                         <div fxFlex fxLayout="column">
-                            <h3 fxFlex class="resizable-text">{{item.product.name}}</h3>
-                            <p fxFlex class="text-muted">{{item.product.description}}</p>
+                            <h3 class="resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">{{item.product.name}}</h3>
+                            <p class="text-muted resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">{{item.product.description}}</p>
                         </div>
                         <div fxFlex fxLayoutAlign="end end" class="p-0">
-                            <div fxFlex fxLayoutAlign="start">
+                            <div fxFlex="60" fxLayoutAlign="start" class="resizable-text">
                                 Prezzo:&nbsp;<u>{{item.product.price | number : '1.2-2'}}€</u>
                             </div>
                             <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
@@ -37,7 +37,7 @@
                                 <input fxFlex matInput [(ngModel)]='item.quantity' (change)="quantityChanged(item.product._id)" min="0" type="number" style="text-align: right">
                             </mat-form-field>
                             <div fxFlex="5"></div>
-                            <button fxFlex="20" mat-raised-button color="primary" matTooltip="Rimuovi al carrello" (click)="remove(item)">
+                            <button fxFlex mat-raised-button color="primary" matTooltip="Rimuovi al carrello" (click)="remove(item)">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </div>

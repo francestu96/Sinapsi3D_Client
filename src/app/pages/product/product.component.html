@@ -5,6 +5,14 @@
         <h2 style="text-align: center;font-weight: bold;color: white;">Prodotti</h2>
     </section>
 
+  <mat-form-field style="margin-top:15px; margin-right:5%; margin-left:5%;">
+      <mat-label>Cerca nel Nome o nella Descrizione del prodotto...</mat-label>
+      <input matInput [(ngModel)]='filter' (ngModelChange)="$event.length > 3 ? getProducts($event) : ($event.length == 0 ? getProducts() : null)">
+      <button mat-icon-button matSuffix (click)="this.clearFilter()">
+        <mat-icon style="font-size: x-large;">cancel</mat-icon>
+      </button>
+  </mat-form-field>
+
   <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
     <ng-container *ngFor="let product of this.products">
       <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;"
@@ -14,7 +22,7 @@
           <div fxFlex="48" fxLayout="column" class="p-4">
             <div fxFlex fxLayout="column">
               <h3 class="resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">{{ product.name }}</h3>
-              <p class="text-muted"  style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
+              <p class="text-muted resizable-text"  style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
                 {{ product.description }}
               </p>
             </div>

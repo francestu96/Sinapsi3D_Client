@@ -9,9 +9,10 @@ import { Item, OnApproveActions, OnApproveData, OnCancelData, OnErrorData, Order
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  providers: [ { provide: PayPalProcessor, useExisting: forwardRef(() => CartComponent) }]
+    selector: 'app-cart',
+    templateUrl: './cart.component.html',
+    styleUrls: ['./cart.component.scss'],
+    providers: [ { provide: PayPalProcessor, useExisting: forwardRef(() => CartComponent) }]
 })
 export class CartComponent implements OnInit {
     public imageBaseUrl = environment.baseURL + "/image/thumb/";

@@ -1,0 +1,44 @@
+@media (max-width: 320px) {
+    h3.resizable-text {
+      font-weight: bold;
+      font-size: 5px;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    h3.resizable-text {
+      font-weight: bold;
+      font-size: 10px;
+    }
+  }
+  
+  @media (min-width: 1080px) {
+    h3.resizable-text {
+      font-weight: bold;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    p.resizable-text {
+      font-size: 3px;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    p.resizable-text {
+      font-size: 7px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    div.resizable-text {
+      font-size: 3px;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    div.resizable-text {
+      font-size: 7px;
+    }
+  }
+  

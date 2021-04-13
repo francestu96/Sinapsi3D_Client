@@ -9,8 +9,14 @@ import { ProductModel } from '../../models/ProductModel';
   providedIn: 'root',
 })
 export class ProductProxy {
-  constructor(private http: HttpClient) {}
-  productList(): Observable<ProductModel[]> {
-    return this.http.get(`${environment.baseURL}/product`).pipe(map((response: ProductModel[]) => response));
-  }
+    constructor(private http: HttpClient) {}
+    
+    productList(filterText: string = null): Observable<ProductModel[]> {
+        var filter = filterText ? "?filter=" + filterText : "";
+        return this.http.get(`${environment.baseURL}/product${filter}`).pipe(map((response: ProductModel[]) => response));
+    }
+
+    get(productId: string): Observable<ProductModel> {
+        return this.http.get(`${environment.baseURL}/product/${productId}`).pipe(map((response: ProductModel) => response));
+    }
 }

@@ -1,3 +1,4 @@
+import { ProductModel } from 'src/app/models/ProductModel';
 import { Money, TaxInfo, Shipping, PartyName, AddressPortable, ApplicationContext, LinkDescription } from './common';
 import { Payer, Payee, PaymentInstruction } from './payment';
 
@@ -25,7 +26,7 @@ export interface OrderResponse {
 
 export interface PurchaseUnitRequest {
   amount: AmountWithBreakdown;
-  reference_id?: string;
+  reference_id?: any;
   payee?: Payee;
   payment_instruction?: PaymentInstruction;
   description?: string;

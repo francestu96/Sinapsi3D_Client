@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
     public imageBaseUrl = environment.baseURL + "/image/thumb/";
     public products: ProductModel[] = [];
     public quantities: any = {};
+    public filter: string;
 
     constructor(
         private router: Router, 
@@ -29,7 +30,11 @@ export class ProductComponent implements OnInit {
         private messageService: MessageService) {}
 
     ngOnInit() {
-        this.productProxy.productList().subscribe(data => {
+        this.getProducts();
+    }
+
+    getProducts(filterText: string = null): void {
+        this.productProxy.productList(filterText).subscribe(data => {
             this.products = data;
             data.forEach(product => this.quantities[product._id] = 0);
         });
@@ -67,6 +72,11 @@ export class ProductComponent implements OnInit {
         else{
             this.messageService.error("la quantità deve essere maggiore di 0");
         }
+    }
+
+    clearFilter(): void{
+        this.filter = null;   
+        this.getProducts();
     }
 
     openDialog(product: ProductModel): void {
