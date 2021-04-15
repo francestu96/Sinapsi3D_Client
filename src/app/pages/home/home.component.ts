@@ -15,8 +15,8 @@ export class HomeComponent {
         this.breakpoint = (window.innerWidth <= 1000) ? ((window.innerWidth <= 700) ? 1 : 2) : 4;
         for (let i = 1; i <= 8; i++) {    
             this.album.push({
-                src: '../../../assets/img/brand/home-pic-3.jpg',
-                thumb: '../../../assets/img/brand/home-pic-3.jpg'
+                src: '../../../assets/img/home/image-1.jpg',
+                thumb: '../../../assets/img/home/image-1.jpg'
             });
         }
     }
