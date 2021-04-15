@@ -122,7 +122,7 @@ export class CartComponent implements OnInit {
 
         this.orderProxy.create(details).subscribe(
             () => {
-                this.cartProxy.delete().subscribe(error => this.messageService.error(error.message));
+                this.cartProxy.delete().subscribe(_ => null, error => this.messageService.error(error.message));
                 this.router.navigate(['/home']);
                 this.messageService.success("Ordine effettuato con successo. Riceverai una mail con maggiori istruzioni!");
             },

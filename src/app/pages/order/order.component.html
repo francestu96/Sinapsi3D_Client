@@ -8,33 +8,34 @@
     <div fxLayout="column" fxLayoutAlign="space-around center">
         <ng-container *ngFor="let item of this.pageStruct">
             <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;width: 50%;position: relative;">
-                <div *ngIf="item.isLoading" style="position: absolute; z-index: 1; top:0px; bottom:0px; left:0px; right:0px; background: rgba(0, 0, 0, 0.15);">
-                    <mat-spinner style="margin: auto; top:40%"></mat-spinner>
+                <div fxLayout="row">
+                    <p fxFlex class="text-muted resizable-text ml-3">Ordine effettuato alle <u>{{item.order.createdAt | date: 'hh:mm'}}</u> del <u>{{item.order.createdAt | date: 'dd/MM/yyyy'}}</u></p>
+                    <p fxLayoutAlign="end" fxFlex class="text-muted resizable-text mr-3">ID: #<u>{{item.order._id}}</u></p>
                 </div>
-                <h4 class="text-muted" style="text-align: center;">Ordine effettuato alle <u>{{item.order.createdAt | date: 'hh:mm'}}</u> del <u>{{item.order.createdAt | date: 'dd/MM/yyyy'}}</u></h4>
-                <ng-container *ngFor="let product of item.products">
-                    <div fxLayout="row">
-                        <div fxFlex="48" class="m-2" #container>
-                            <ng-image-slider
+
+                <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)">
+                    <mat-grid-tile *ngFor="let product of item.products">
+                        <div #container style="width: 100%;height: 100%;" class="m-2">
+                            <ng-image-slider #slider
                                 [images]="product.images" 
-                                [manageImageRatio]="false" 
-                                [imageSize]="{width: container.offsetWidth, height: container.offsetWidth, space:0}">
+                                [manageImageRatio]="true"
+                                [imageSize]="{width: container.offsetWidth + 1, height: container.offsetWidth + 1, space:0}">
                             </ng-image-slider>
                         </div>
-                        <div fxFlex="48" fxLayout="column" class="p-4">
-                            <div fxFlex fxLayout="column">
-                                <h3 class="resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">{{product.model.name}}</h3>
-                                <p class="text-muted resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">{{product.model.description}}</p>
-                            </div>
-                            <div fxFlex fxLayoutAlign="end end" class="p-0">
-                                <div fxFlex="60" fxLayoutAlign="start" class="resizable-text">
-                                    Prezzo:&nbsp;<u>{{product.model.price | number : '1.2-2'}}€</u>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ng-container>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <span class="ml-3">Indirizzo di Spedizione:</span>
+                <p class="ml-3"><u>{{item.order.payer.address.address_line_1}}</u>, <u>{{item.order.payer.address.admin_area_2}}</u> (<u>{{item.order.payer.address.admin_area_1}}</u>), <u>{{item.order.payer.address.postal_code}}</u></p>
+                <span class="ml-3">E-mail di riferimento per il pagamento:</span>
+                <p class="ml-3"><u>{{item.order.payer.email_address}}</u></p>
+                <span style="float: right;" class="mr-3 mb-2">Prezzo totale ordine: <u>{{item.totalPrice | number : '1.2-2'}}€</u></span>
             </div>
         </ng-container>
+    </div>
+
+    <div *ngIf="this.pageStruct.length === 0" fxLayout="column" fxLayoutAlign="center center" class="mt-4">
+        <h2 class="text-muted">Ancora nessun ordine effettuato</h2>
+        <p class="text-muted">Vai alla sezione <a href="/#/products"><u>Prodotti</u></a> per acquistare qualcosa!</p>
     </div>
 </main>

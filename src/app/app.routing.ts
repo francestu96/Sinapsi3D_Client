@@ -4,9 +4,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { AuthGuardService } from './services/auth.guard.service';
@@ -16,9 +15,8 @@ import { OrderComponent } from './pages/order/order.component';
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'products', component: ProductComponent },
-    { path: 'user-profile', component: ProfileComponent },
+    { path: 'contacts', component: ContactsComponent },
     { path: 'register', component: SignupComponent },
-    { path: 'landing', component: LandingComponent },
     { path: 'login', component: LoginComponent },
     { path: 'cart/:userId', component: CartComponent, canActivate: [AuthGuardService] },
     { path: 'order/:userId', component: OrderComponent, canActivate: [AuthGuardService] },

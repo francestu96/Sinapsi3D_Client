@@ -27,6 +27,9 @@
         <li class="nav-item" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '15px'}">
             <a class="nav-link" href="/#/products">Acquista</a>
         </li>
+        <li class="nav-item" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '15px'}">
+            <a class="nav-link" href="/#/contacts">Contatti</a>
+        </li>
       </ul>
       <ul *ngIf="!this.identity; else signedin" class="navbar-nav align-items-lg-center ml-lg-auto">
           <li class="nav-item">
@@ -91,10 +94,10 @@
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item">
+              <!-- <a class="dropdown-item">
                 <span>Impostazioni</span>
                 <mat-icon style="position: absolute;right: 0.5em;">manage_accounts</mat-icon>
-              </a>
+              </a> -->
               <a class="dropdown-item" (click)="this.signOut()">
                 <span>Esci</span>
                 <mat-icon style="position: absolute;right: 0.5em;">logout</mat-icon>

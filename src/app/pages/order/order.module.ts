@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { OrderComponent } from './order.component';
@@ -12,7 +13,8 @@ import { OrderComponent } from './order.component';
         FormsModule,
         FlexLayoutModule,
         MatIconModule,
-        NgImageSliderModule
+        NgImageSliderModule,
+        MatGridListModule
     ],
     declarations: [ OrderComponent ],
     exports: [ OrderComponent ]

@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { Component } from '@angular/core';
 import { Lightbox } from 'ngx-lightbox';
-import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-home',
