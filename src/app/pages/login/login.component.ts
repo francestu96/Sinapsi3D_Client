@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/services/message.service';
 import { AuthProxy } from 'src/app/services/proxy/auth.proxy';
 import { StorageService } from '../../services/storage.service';
+import { PasswordForgotModalComponent } from './password-forgot-modal/password-forgot-modal.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   email: string;
   password: string;
   errorMessage: string = null;
@@ -17,12 +20,11 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authProxy: AuthProxy,
+    private messageService: MessageService,
     private storageService: StorageService,
     private router: Router,
+    private dialog: MatDialog 
   ) {}
-
-  ngOnInit() {
-  }
 
   onSubmit(): void {
     if (!this.email || ! this.password){
@@ -33,10 +35,23 @@ export class LoginComponent implements OnInit {
         this.storageService.saveToken(data.access_token);
         this.storageService.saveIdentity(data.id_token);
         this.router.navigate(['/home']);
+        this.messageService.success("Accesso avvenuto con successo");
       },
       (err) => {
         this.errorMessage =  err.error.message;
       }
     );
   }
+
+    openDialog(): void {
+        const dialogRef = this.dialog.open(PasswordForgotModalComponent, { width: "600px" });
+
+        
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.router.navigate(['/home']);
+                this.messageService.success("Riceverai una mail con le nuove credenziali");
+            }
+        });
+    }
 }

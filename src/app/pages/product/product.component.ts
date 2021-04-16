@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductModel } from 'src/app/models/ProductModel';
-import { ProductModalComponent } from '../product-modal/product-modal.component';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
 import { ProductProxy } from 'src/app/services/proxy/product.proxy';
 import { CartProxy } from 'src/app/services/proxy/cart.proxy';
 import { MessageService } from 'src/app/services/message.service';
+import { ProductModalComponent } from './product-modal/product-modal.component';
 
 @Component({
     selector: 'app-product',

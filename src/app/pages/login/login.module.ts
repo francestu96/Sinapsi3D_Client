@@ -8,10 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ProductComponent } from './product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ProductModalModule } from './product-modal/product-modal.module';
-import { ProductModalComponent } from './product-modal/product-modal.component';
+import { LoginComponent } from './login.component';
+import { PasswordForgotModalModule } from './password-forgot-modal/password-forgot-modal.module';
+import { PasswordForgotModalComponent } from './password-forgot-modal/password-forgot-modal.component';
 
 @NgModule({
     imports: [
@@ -25,10 +25,11 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
         MatFormFieldModule,
         MatButtonModule,
         MatTooltipModule,
-        ProductModalModule
+        PasswordForgotModalModule
     ],
-    declarations: [ ProductComponent ],
-    exports: [ ProductComponent ],
-    entryComponents: [ ProductModalComponent ]
+    declarations: [ LoginComponent ],
+    exports: [ LoginComponent ],
+    entryComponents: [ PasswordForgotModalComponent ]
+
 })
-export class ProductModule { }
+export class LoginModule { }

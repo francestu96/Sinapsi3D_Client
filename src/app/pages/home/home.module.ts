@@ -15,8 +15,8 @@ import { LightboxModule } from 'ngx-lightbox';
 import { HomeComponent } from './home.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ProductModalComponent } from '../product-modal/product-modal.component';
-import { ProductModalModule } from '../product-modal/product-modal.module';
+import { ProductModalComponent } from '../product/product-modal/product-modal.component';
+import { ProductModalModule } from '../product/product-modal/product-modal.module';
 
 @NgModule({
     imports: [

@@ -18,7 +18,7 @@
               <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
                   <div *ngIf="!this.errorMessage; else errorTemplate">
-                    <small>Accedi con le credenziali</small>
+                    <small>Reimposta password</small>
                   </div>
                   <ng-template #errorTemplate>
                     <small style="color: #800000;">{{this.errorMessage}}</small>
@@ -29,7 +29,15 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Email" type="email" (focus)="focus=true" (blur)="focus=false">
+                    <input [(ngModel)]="oldPassword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Vecchia Password" type="password" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+                </div>
+                <div class="form-group mt-2" [ngClass]="{'focused':focus1===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input [(ngModel)]="newPassword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nuova Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -37,24 +45,17 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
+                    <input [(ngModel)]="repeatPassword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Ripeti Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
                   </div>
                 </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Accedi</button>
+                <div class="text-muted font-italic">
+                    <small>password:<br>
+                        <span style="color: #800000;" class="font-weight-700">almeno 8 caratteri, maiuscolo e numero</span>
+                    </small>
                 </div>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-6">
-                <a href="javascript:void(0)" (click)="this.openDialog()" class="text-light">
-                  <small>Forgot password?</small>
-                </a>
-              </div>
-              <div class="col-6 text-right">
-                <a href="/#/register" class="text-light">
-                  <small>Create new account</small>
-                </a>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary my-4">Invia</button>
+                </div>
               </div>
             </div>
           </div>

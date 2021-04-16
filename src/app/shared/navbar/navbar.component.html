@@ -1,7 +1,7 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
     <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
-      <img src="./assets/img/brand/argon-white.png">
+      <img src="./assets/img/brand/sinapsi3d.png">
     </a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
@@ -94,10 +94,10 @@
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
               </a>
               <div class="dropdown-divider"></div>
-              <!-- <a class="dropdown-item">
-                <span>Impostazioni</span>
+              <a [routerLink]="['/profile/' + this.identity.id]" class="dropdown-item">
+                <span>Cambia password</span>
                 <mat-icon style="position: absolute;right: 0.5em;">manage_accounts</mat-icon>
-              </a> -->
+              </a>
               <a class="dropdown-item" (click)="this.signOut()">
                 <span>Esci</span>
                 <mat-icon style="position: absolute;right: 0.5em;">logout</mat-icon>

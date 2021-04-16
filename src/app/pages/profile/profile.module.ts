@@ -8,10 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ProductComponent } from './product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ProductModalModule } from './product-modal/product-modal.module';
-import { ProductModalComponent } from './product-modal/product-modal.component';
+import { ProfileComponent } from './profile.component';
 
 @NgModule({
     imports: [
@@ -24,11 +22,9 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
         MatInputModule,
         MatFormFieldModule,
         MatButtonModule,
-        MatTooltipModule,
-        ProductModalModule
+        MatTooltipModule
     ],
-    declarations: [ ProductComponent ],
-    exports: [ ProductComponent ],
-    entryComponents: [ ProductModalComponent ]
+    declarations: [ ProfileComponent ],
+    exports: [ ProfileComponent ]
 })
-export class ProductModule { }
+export class ProfileModule { }

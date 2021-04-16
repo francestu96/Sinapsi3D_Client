@@ -23,15 +23,16 @@ import { CartModule } from './pages/cart/cart.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ProductModule } from './pages/product/product.module';
 import { OrderModule } from './pages/order/order.module';
+import { SignupModule } from './pages/signup/signup.module';
+import { LoginModule } from './pages/login/login.module';
+import { ProfileModule } from './pages/profile/profile.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
     ContactsComponent,
     NavbarComponent,
-    FooterComponent,
-    LoginComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +40,13 @@ import { OrderModule } from './pages/order/order.module';
     FormsModule,
     RouterModule,
     AppRoutingModule,
+    LoginModule,
+    SignupModule,
     HomeModule,
     ProductModule,
     CartModule,
     OrderModule,
+    ProfileModule,
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,

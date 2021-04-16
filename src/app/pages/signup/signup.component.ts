@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/services/message.service';
 import { AuthProxy } from 'src/app/services/proxy/auth.proxy';
 import { StorageService } from '../../services/storage.service';
 
@@ -20,6 +21,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private authProxy: AuthProxy,
     private storageService: StorageService,
+    private messageService: MessageService,
     private router: Router
   ) {}
 
@@ -32,6 +34,7 @@ export class SignupComponent implements OnInit {
             this.storageService.saveToken(data.access_token);
             this.storageService.saveIdentity(data.id_token);
             this.router.navigate([`/home`]);
+            this.messageService.success("Registrazione avvenuta con successo");
           },
           (err) => {
             this.errorMessage = err.error.message;
@@ -41,7 +44,7 @@ export class SignupComponent implements OnInit {
   }
 
   private isValidForm(): boolean {
-    const passRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}\[\]:;<>,.\?\/~_\+\-=|]).{8,}$/;
+    const passRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!this.name || !this.email || !this.password) {

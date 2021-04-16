@@ -11,6 +11,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { AuthGuardService } from './services/auth.guard.service';
 import { ProductComponent } from './pages/product/product.component';
 import { OrderComponent } from './pages/order/order.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'cart/:userId', component: CartComponent, canActivate: [AuthGuardService] },
     { path: 'order/:userId', component: OrderComponent, canActivate: [AuthGuardService] },
+    { path: 'profile/:userId', component: ProfileComponent, canActivate: [AuthGuardService] },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
