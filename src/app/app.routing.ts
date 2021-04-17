@@ -19,9 +19,9 @@ const routes: Routes = [
     { path: 'contacts', component: ContactsComponent },
     { path: 'register', component: SignupComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'cart/:userId', component: CartComponent, canActivate: [AuthGuardService] },
-    { path: 'order/:userId', component: OrderComponent, canActivate: [AuthGuardService] },
-    { path: 'profile/:userId', component: ProfileComponent, canActivate: [AuthGuardService] },
+    { path: 'cart', component: CartComponent, canActivate: [AuthGuardService] },
+    { path: 'order', component: OrderComponent, canActivate: [AuthGuardService] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

@@ -39,7 +39,7 @@ export class ProfileComponent {
         return;
     }
 
-    this.authProxy.changePassword(this.route.snapshot.paramMap.get('userId'), this.oldPassword, this.newPassword).subscribe((data) => {
+    this.authProxy.changePassword(this.oldPassword, this.newPassword).subscribe((data) => {
         this.router.navigate(['/home']);
         this.messageService.success("Password cambiata con successo");
       },

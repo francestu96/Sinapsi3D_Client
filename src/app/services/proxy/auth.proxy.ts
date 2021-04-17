@@ -17,8 +17,8 @@ export class AuthProxy {
     return this.http.post(`${environment.baseURL}/auth/signup`, { name, email, password });
   }
   
-  changePassword(userId: string, oldPassword: string, newPassword: string): Observable<any> {
-    return this.http.post(`${environment.baseURL}/auth/change_password`, { userId, oldPassword, newPassword });
+  changePassword(oldPassword: string, newPassword: string): Observable<any> {
+    return this.http.post(`${environment.baseURL}/auth/change_password`, { oldPassword, newPassword });
   }
 
   passwordForgot(email: string): Observable<any> {

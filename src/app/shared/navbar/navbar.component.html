@@ -85,16 +85,16 @@
               <mat-icon>account_circle</mat-icon>
             </a>
             <div class="dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1" ngbDropdownMenu>
-              <a [routerLink]="['/cart/' + this.identity.id]" class="dropdown-item">
+              <a [routerLink]="['/cart']" class="dropdown-item">
                 <span>Carrello</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_cart</mat-icon>
               </a>
-              <a [routerLink]="['/order/' + this.identity.id]" class="dropdown-item">
+              <a [routerLink]="['/order']" class="dropdown-item">
                 <span>I miei ordini</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
               </a>
               <div class="dropdown-divider"></div>
-              <a [routerLink]="['/profile/' + this.identity.id]" class="dropdown-item">
+              <a [routerLink]="['/profile']" class="dropdown-item">
                 <span>Cambia password</span>
                 <mat-icon style="position: absolute;right: 0.5em;">manage_accounts</mat-icon>
               </a>
