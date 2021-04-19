@@ -9,24 +9,20 @@ import { Lightbox } from 'ngx-lightbox';
 
 export class HomeComponent {
     breakpoint: number;
-    album = [];
+    album1 = [];
+    album2 = [];
 
     constructor(private lightbox: Lightbox) {
         this.breakpoint = (window.innerWidth <= 1000) ? ((window.innerWidth <= 700) ? 1 : 2) : 4;
-        for (let i = 1; i <= 8; i++) {    
-            this.album.push({
-                src: '../../../assets/img/home/image-1.jpg',
-                thumb: '../../../assets/img/home/image-1.jpg'
-            });
-        }
+        this.setAlbums();
     }
     
     onResize(event: any) {
       this.breakpoint = (event.target.innerWidth <= 1000) ? ((event.target.innerWidth <= 700) ? 1 : 2) : 4;
     }
 
-    open(index: number): void {
-        this.lightbox.open(this.album, index);
+    open(album: any[], index: number): void {
+        this.lightbox.open(album, index);
     }
      
     close(): void {
@@ -51,5 +47,97 @@ export class HomeComponent {
           (top + height) > window.pageYOffset &&
           (left + width) > window.pageXOffset
         );
+    }
+
+    private setAlbums() {
+        this.album1 = [
+            {
+                src: `../../../assets/img/home/1.png`,
+                thumb: `../../../assets/img/home/1.png`,
+                rows: 2,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/2.png`,
+                thumb: `../../../assets/img/home/2.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/3.png`,
+                thumb: `../../../assets/img/home/3.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/4.png`,
+                thumb: `../../../assets/img/home/4.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/5.png`,
+                thumb: `../../../assets/img/home/5.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/6.png`,
+                thumb: `../../../assets/img/home/6.png`,
+                rows: 1,
+                cols: 2
+            }
+            // {
+            //     src: `../../../assets/img/home/7.png`,
+            //     thumb: `../../../assets/img/home/7.png`,
+            //     rows: 1,
+            //     cols: 1
+            // },
+        ];
+
+        this.album2 = [
+            {
+                src: `../../../assets/img/home/7.png`,
+                thumb: `../../../assets/img/home/7.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/8.png`,
+                thumb: `../../../assets/img/home/8.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/9.png`,
+                thumb: `../../../assets/img/home/9.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/10.png`,
+                thumb: `../../../assets/img/home/10.png`,
+                rows: 2,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/11.png`,
+                thumb: `../../../assets/img/home/11.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/12.png`,
+                thumb: `../../../assets/img/home/12.png`,
+                rows: 1,
+                cols: 1
+            },
+            {
+                src: `../../../assets/img/home/13.png`,
+                thumb: `../../../assets/img/home/13.png`,
+                rows: 1,
+                cols: 1
+            },
+        ];
     }
 }

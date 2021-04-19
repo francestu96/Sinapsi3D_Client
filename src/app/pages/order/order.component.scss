@@ -1,16 +1,16 @@
 @media (max-width: 1124px) {
-  p.resizable-text {
+  p.resizable-text, span.resizable-text {
     font-size: 10px;
   }
 }
 
 @media (max-width: 720px) {
-  p.resizable-text {
+  p.resizable-text, span.resizable-text {
     font-size: 4px;
   }
 }
 @media (max-width: 400px) {
-  p.resizable-text {
+  p.resizable-text, span.resizable-text {
     font-size: 2px;
   }
 }

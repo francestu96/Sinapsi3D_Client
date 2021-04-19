@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 @Component({
 	selector: 'product-modal',
 	templateUrl: './product-modal.component.html',
+    styleUrls: ['../product.component.scss']
 })
 export class ProductModalComponent {
 	public images: any[] = [];

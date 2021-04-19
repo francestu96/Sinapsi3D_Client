@@ -22,14 +22,14 @@ const routes: Routes = [
     { path: 'cart', component: CartComponent, canActivate: [AuthGuardService] },
     { path: 'order', component: OrderComponent, canActivate: [AuthGuardService] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],

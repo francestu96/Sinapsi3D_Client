@@ -48,21 +48,4 @@ export class NavbarComponent implements OnInit {
     this.storageSerice.signOut();
     this.router.navigate(['/home']);
   }
-
-  isHome() {
-    const title = this.location.prepareExternalUrl(this.location.path());
-    if (title === '#/home') {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  isDocumentation() {
-    const title = this.location.prepareExternalUrl(this.location.path());
-    if (title === '#/documentation') {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }

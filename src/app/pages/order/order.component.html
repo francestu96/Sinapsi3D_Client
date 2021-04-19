@@ -25,17 +25,17 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <span class="ml-3">Indirizzo di Spedizione:</span>
-                <p class="ml-3"><u>{{item.order.payer.address.address_line_1}}</u>, <u>{{item.order.payer.address.admin_area_2}}</u> (<u>{{item.order.payer.address.admin_area_1}}</u>), <u>{{item.order.payer.address.postal_code}}</u></p>
-                <span class="ml-3">E-mail di riferimento per il pagamento:</span>
-                <p class="ml-3"><u>{{item.order.payer.email_address}}</u></p>
-                <span style="float: right;" class="mr-3 mb-2">Prezzo totale ordine: <u>{{item.totalPrice | number : '1.2-2'}}€</u></span>
+                <span class="ml-3 resizable-text">Indirizzo di Spedizione:</span>
+                <p class="ml-3 resizable-text"><u>{{item.order.payer.address.address_line_1}}</u>, <u>{{item.order.payer.address.admin_area_2}}</u> (<u>{{item.order.payer.address.admin_area_1}}</u>), <u>{{item.order.payer.address.postal_code}}</u></p>
+                <span class="ml-3 resizable-text">E-mail di riferimento per il pagamento:</span>
+                <p class="ml-3 resizable-text"><u>{{item.order.payer.email_address}}</u></p>
+                <span style="float: right;" class="mr-3 mb-2 resizable-text">Prezzo totale ordine: <u>{{item.totalPrice | number : '1.2-2'}}€</u></span>
             </div>
         </ng-container>
     </div>
 
     <div *ngIf="this.pageStruct.length === 0" fxLayout="column" fxLayoutAlign="center center" class="mt-4">
         <h2 class="text-muted">Ancora nessun ordine effettuato</h2>
-        <p class="text-muted">Vai alla sezione <a href="/#/products"><u>Prodotti</u></a> per acquistare qualcosa!</p>
+        <p class="text-muted">Vai alla sezione <a href="/products"><u>Prodotti</u></a> per acquistare qualcosa!</p>
     </div>
 </main>

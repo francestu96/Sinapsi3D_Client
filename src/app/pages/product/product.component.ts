@@ -59,7 +59,7 @@ export class ProductComponent implements OnInit {
 
                     snackBarRef.afterDismissed().subscribe(info => {
                         if (info.dismissedByAction === true) {
-                            this.router.navigate(['/cart/' + this.storageService.getIdentity().id]);
+                            this.router.navigate(['/cart']);
                         }
                     });
 

@@ -24,11 +24,11 @@
         </div>
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-        <li class="nav-item" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '15px'}">
-            <a class="nav-link" href="/#/products">Acquista</a>
+        <li class="nav-item">
+            <a class="nav-link" href="/products">Prodotti</a>
         </li>
         <li class="nav-item" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '15px'}">
-            <a class="nav-link" href="/#/contacts">Contatti</a>
+            <a class="nav-link" href="/contacts">Contatti</a>
         </li>
       </ul>
       <ul *ngIf="!this.identity; else signedin" class="navbar-nav align-items-lg-center ml-lg-auto">
@@ -50,7 +50,7 @@
               <span class="nav-link-inner--text d-lg-none">Facebook</span>
             </a>
           </li>
-        <li class="nav-item d-lg-block ml-lg-2" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '10px'}">
+        <li class="nav-item d-lg-block ml-lg-2" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '10px', 'margin-top': this.isCollapsed ? '0px' : '20px'}">
           <button [routerLink]="['/login']" mat-raised-button>Accedi <mat-icon>login</mat-icon></button> 
         </li>
         <li class="nav-item d-lg-block ml-lg-2">
