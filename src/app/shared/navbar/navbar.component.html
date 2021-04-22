@@ -54,7 +54,7 @@
           <button [routerLink]="['/login']" mat-raised-button>Accedi <mat-icon>login</mat-icon></button> 
         </li>
         <li class="nav-item d-lg-block ml-lg-2">
-          <button [routerLink]="['/register']" mat-raised-button color="primary">Registrati<mat-icon class="ml-2">person_add_alt_1</mat-icon></button> 
+          <button [routerLink]="['/register']" mat-raised-button style="background-color: #32325d;color: white;">Registrati<mat-icon class="ml-2">person_add_alt_1</mat-icon></button> 
         </li>
       </ul>
       <ng-template #signedin>
@@ -85,13 +85,17 @@
               <mat-icon>account_circle</mat-icon>
             </a>
             <div class="dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1" ngbDropdownMenu>
-              <a [routerLink]="['/cart']" class="dropdown-item">
+              <a *ngIf="!this.isAdmin()" [routerLink]="['/cart']" class="dropdown-item">
                 <span>Carrello</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_cart</mat-icon>
               </a>
-              <a [routerLink]="['/order']" class="dropdown-item">
+              <a *ngIf="!this.isAdmin()" [routerLink]="['/order']" class="dropdown-item">
                 <span>I miei ordini</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
+              </a>
+              <a *ngIf="this.isAdmin()" [routerLink]="['/admin-product']" class="dropdown-item">
+                <span>Aggiungi prodotto</span>
+                <mat-icon style="position: absolute;right: 0.5em;">add_circle_outline</mat-icon>
               </a>
               <div class="dropdown-divider"></div>
               <a [routerLink]="['/profile']" class="dropdown-item">

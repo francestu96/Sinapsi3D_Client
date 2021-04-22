@@ -1,8 +1,5 @@
 <main fxLayout="column" style="position: relative;">
-    <div *ngIf="isPaymentLoading" style="position: absolute; z-index: 1; top:0px; bottom:0px; left:0px; right:0px; background: rgba(0, 0, 0, 0.25);">
-        <mat-spinner style="margin: auto; top:40%"></mat-spinner>
-    </div>
-    <section fxFlex style="height: 230px; background: linear-gradient(150deg, #281483 15%, #8f6ed5 70%, #d782d9)">
+    <section fxFlex style="height: 230px; background: linear-gradient(150deg, #32325d 15%, #32325d 70%, #32325d 94%)">
         <span
             style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
         <h2 style="text-align: center;font-weight: bold;color: white;">Carrello</h2>
@@ -37,7 +34,7 @@
                                 <input fxFlex matInput [(ngModel)]='item.quantity' (change)="quantityChanged(item.product._id)" min="0" type="number" style="text-align: right">
                             </mat-form-field>
                             <div fxFlex="5"></div>
-                            <button fxFlex="5" mat-raised-button color="primary" matTooltip="Rimuovi al carrello" (click)="remove(item)">
+                            <button fxFlex="5" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="Rimuovi al carrello" (click)="remove(item)">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </div>

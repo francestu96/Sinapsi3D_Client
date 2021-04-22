@@ -53,88 +53,82 @@ export class HomeComponent {
         this.album1 = [
             {
                 src: `../../../assets/img/home/1.png`,
-                thumb: `../../../assets/img/home/1.png`,
+                thumb: `../../../assets/img/home/thumb-1.png`,
                 rows: 2,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/2.png`,
-                thumb: `../../../assets/img/home/2.png`,
+                thumb: `../../../assets/img/home/thumb-2.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/3.png`,
-                thumb: `../../../assets/img/home/3.png`,
+                thumb: `../../../assets/img/home/thumb-3.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/4.png`,
-                thumb: `../../../assets/img/home/4.png`,
+                thumb: `../../../assets/img/home/thumb-4.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/5.png`,
-                thumb: `../../../assets/img/home/5.png`,
+                thumb: `../../../assets/img/home/thumb-5.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/6.png`,
-                thumb: `../../../assets/img/home/6.png`,
+                thumb: `../../../assets/img/home/thumb-6.png`,
                 rows: 1,
                 cols: 2
             }
-            // {
-            //     src: `../../../assets/img/home/7.png`,
-            //     thumb: `../../../assets/img/home/7.png`,
-            //     rows: 1,
-            //     cols: 1
-            // },
         ];
 
         this.album2 = [
             {
                 src: `../../../assets/img/home/7.png`,
-                thumb: `../../../assets/img/home/7.png`,
+                thumb: `../../../assets/img/home/thumb-7.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/8.png`,
-                thumb: `../../../assets/img/home/8.png`,
+                thumb: `../../../assets/img/home/thumb-8.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/9.png`,
-                thumb: `../../../assets/img/home/9.png`,
+                thumb: `../../../assets/img/home/thumb-9.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/10.png`,
-                thumb: `../../../assets/img/home/10.png`,
+                thumb: `../../../assets/img/home/thumb-10.png`,
                 rows: 2,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/11.png`,
-                thumb: `../../../assets/img/home/11.png`,
+                thumb: `../../../assets/img/home/thumb-11.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/12.png`,
-                thumb: `../../../assets/img/home/12.png`,
+                thumb: `../../../assets/img/home/thumb-12.png`,
                 rows: 1,
                 cols: 1
             },
             {
                 src: `../../../assets/img/home/13.png`,
-                thumb: `../../../assets/img/home/13.png`,
+                thumb: `../../../assets/img/home/thumb-13.png`,
                 rows: 1,
                 cols: 1
             },

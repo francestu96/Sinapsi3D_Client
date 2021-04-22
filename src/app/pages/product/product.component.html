@@ -1,5 +1,5 @@
 <main fxLayout="column" style="position: relative;">
-    <section fxFlex style="height: 230px; background: linear-gradient(150deg, #281483 15%, #8f6ed5 70%, #d782d9)">
+    <section fxFlex style="height: 230px; background: linear-gradient(150deg, #32325d 15%, #32325d 70%, #32325d 94%)">
         <span
             style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
         <h2 style="text-align: center;font-weight: bold;color: white;">Prodotti</h2>
@@ -26,16 +26,23 @@
                 {{ product.description }}
               </p>
             </div>
-            <div fxFlex fxLayoutAlign="end end" class="p-0">
+            <div *ngIf="!this.isAdmin(); else admin" fxFlex fxLayoutAlign="end end" class="p-0">
               <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
                 <mat-label fxFlex>Quantità</mat-label>
                 <input fxFlex matInput [(ngModel)]='this.quantities[product._id]' type="number" min="0" style="text-align: right">
               </mat-form-field>
               <div fxFlex="5"></div>
-              <button fxFlex="20" (click)="this.addToCart(product._id)" mat-raised-button color="primary" matTooltip="Aggiungi al carrello">
+              <button fxFlex="20" (click)="this.addToCart(product._id)" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="Aggiungi al carrello">
                 <mat-icon>add_shopping_cart</mat-icon>
               </button>
             </div>
+            <ng-template #admin>
+                <div fxFlex fxLayoutAlign="end end" class="p-0">
+                    <button fxFlex="20" (click)="this.deleteProduct(product._id)" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="Aggiungi al carrello">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </ng-template>
           </div>
         </div>
       </div>

@@ -44,6 +44,10 @@ export class NavbarComponent implements OnInit {
     this.identity = this.storageSerice.getIdentity();
   }
 
+  isAdmin(): boolean {
+      return this.storageSerice.isAdmin();
+  }
+
   signOut() {
     this.storageSerice.signOut();
     this.router.navigate(['/home']);

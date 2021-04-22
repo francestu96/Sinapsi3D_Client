@@ -19,4 +19,12 @@ export class ProductProxy {
     get(productId: string): Observable<ProductModel> {
         return this.http.get(`${environment.baseURL}/product/${productId}`).pipe(map((response: ProductModel) => response));
     }
+    
+    add(formData: FormData): Observable<ProductModel> {
+        return this.http.post(`${environment.baseURL}/product`, formData).pipe(map((response: ProductModel) => response));
+    }
+
+    delete(productId: string): Observable<ProductModel> {
+        return this.http.delete(`${environment.baseURL}/product/${productId}`).pipe(map((response: ProductModel) => response));
+    }
 }

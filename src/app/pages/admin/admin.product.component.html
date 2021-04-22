@@ -1,0 +1,49 @@
+<main fxLayout="column">
+    <section fxFlex style="height: 230px; background: linear-gradient(150deg, #32325d 15%, #32325d 70%, #32325d 94%)">
+        <span
+            style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
+        <h2 style="text-align: center;font-weight: bold;color: white;">Carica prodotto</h2>
+    </section>
+
+    <form [formGroup]="form" #formGroup="ngForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around center">
+        <div *ngIf="isLoading" style="position: absolute; z-index: 1; top:0px; bottom:0px; left:0px; right:0px; background: rgba(0, 0, 0, 0.15);">
+            <mat-spinner style="margin: auto; top:55%"></mat-spinner>
+        </div>
+
+        <div style="width: 40%;margin-top: 2%; margin-bottom:1%">
+            <mat-file-upload #fileUpload
+                [labelText]="'Seleziona i file da caricare:'"
+                [selectButtonText]="'File selezionati'"
+                [selectFilesButtonType]="'button'"
+                [allowMultipleFiles]="true"
+                [showUploadButton]="false"
+                [acceptedTypes]="'.png, .jpg, .jpeg'"
+                (selectedFilesChanged)="onSelectedFilesChanged($event)">
+            </mat-file-upload>
+            <div fxLayout="row" fxLayoutAlign="space-around center">                
+                <div *ngFor="let image of this.images">
+                    {{image.name}}
+                </div>
+            </div>
+        </div>
+        <div style="width: 40%;">
+            <mat-form-field fxFlex="74">
+                <input matInput placeholder="Nome" formControlName="name">
+            </mat-form-field>
+            <div fxFlex="2"></div>
+            <mat-form-field fxFlex="24">
+                <input matInput type="number" placeholder="Prezzo" formControlName="price">
+            </mat-form-field>
+        </div>
+        <div style="width: 40%;">
+            <mat-form-field fxFlex>
+                <textarea matInput placeholder="Descrizione" formControlName="description" rows="4"></textarea>
+            </mat-form-field>
+        </div>
+        <div style="width: 40%;">
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark my-4">Carica</button>
+            </div>
+        </div>
+    </form>
+</main>

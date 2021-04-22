@@ -6,18 +6,16 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './pages/signup/signup.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './pages/home/home.module';
-import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { authInterceptorProviders } from './services/interceptor/auth.interceptor';
+import { AuthInterceptorProviders } from './services/interceptor/auth.interceptor';
 import { AuthGuardService } from './services/auth.guard.service';
 import { CartModule } from './pages/cart/cart.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -26,6 +24,9 @@ import { OrderModule } from './pages/order/order.module';
 import { SignupModule } from './pages/signup/signup.module';
 import { LoginModule } from './pages/login/login.module';
 import { ProfileModule } from './pages/profile/profile.module';
+import { AuthAdminGuardService } from './services/auth.admin.guard.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AdminProdctModule } from './pages/admin/admin-product.module';
 
 @NgModule({
   declarations: [
@@ -45,15 +46,17 @@ import { ProfileModule } from './pages/profile/profile.module';
     HomeModule,
     ProductModule,
     CartModule,
+    AdminProdctModule,
     OrderModule,
     ProfileModule,
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
     MatIconModule,
+    MatFormFieldModule,
     MatSnackBarModule
   ],
-  providers: [authInterceptorProviders, AuthGuardService],
+  providers: [AuthInterceptorProviders, AuthGuardService, AuthAdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

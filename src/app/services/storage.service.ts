@@ -42,6 +42,11 @@ export class StorageService {
     return null;
   }
 
+  public isAdmin(): boolean {
+    var id = this.getIdentity();
+    return id?.roles.includes("admin");
+  }
+
   public signOut(): void {
     localStorage.clear();
     this.authEmitter.emit();

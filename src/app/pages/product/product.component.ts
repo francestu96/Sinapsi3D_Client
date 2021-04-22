@@ -74,6 +74,19 @@ export class ProductComponent implements OnInit {
         }
     }
 
+    deleteProduct(productId: string): void {
+        this.productProxy.delete(productId).subscribe(
+            _ => {
+                var index = this.products.indexOf(this.products.find(x => x._id === productId));
+                if (index !== -1){
+                    this.products.splice(index, 1);
+                }
+                this.messageService.success("Prodotto eliminato");
+            },
+            err => this.messageService.error(err.error.message)
+        );
+    }
+
     clearFilter(): void{
         this.filter = null;   
         this.getProducts();
@@ -85,4 +98,8 @@ export class ProductComponent implements OnInit {
 			data: product,
 		});
 	}
+
+    isAdmin(): boolean {
+        return this.storageService.isAdmin();
+    }
 }

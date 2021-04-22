@@ -3,20 +3,10 @@ import { CanActivate, Router } from '@angular/router';
 import { StorageService } from './storage.service';
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthAdminGuardService implements CanActivate {
   constructor(private storageSerivce: StorageService, private router: Router) {}
 
   canActivate(): boolean {
-    if (!this.storageSerivce.getIdentity()) {
-      this.storageSerivce.signOut();
-      this.router.navigateByUrl('/login');
-      return false;
-    }
-
-    return true;
-  }
-
-  isAdmin(): boolean {
     return this.storageSerivce.getIdentity().roles.includes("admin");
   }
 }
