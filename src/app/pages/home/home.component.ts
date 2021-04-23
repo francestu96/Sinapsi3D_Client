@@ -8,17 +8,20 @@ import { Lightbox } from 'ngx-lightbox';
 })
 
 export class HomeComponent {
+    windowWidth: number;
     breakpoint: number;
     album1 = [];
     album2 = [];
 
     constructor(private lightbox: Lightbox) {
-        this.breakpoint = (window.innerWidth <= 1000) ? ((window.innerWidth <= 700) ? 1 : 2) : 4;
+        this.windowWidth = window.innerWidth;
+        this.breakpoint = (window.innerWidth <= 1000) ? 2 : 4;
         this.setAlbums();
     }
     
     onResize(event: any) {
-      this.breakpoint = (event.target.innerWidth <= 1000) ? ((event.target.innerWidth <= 700) ? 1 : 2) : 4;
+        this.windowWidth = event.target.innerWidth;
+       this.breakpoint = (event.target.innerWidth <= 1000) ? 2 : 4;
     }
 
     open(album: any[], index: number): void {
