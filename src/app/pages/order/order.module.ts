@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { OrderComponent } from './order.component';
 
@@ -16,7 +17,8 @@ import { OrderComponent } from './order.component';
         FlexLayoutModule,
         MatIconModule,
         NgImageSliderModule,
-        MatGridListModule
+        MatGridListModule,
+        TranslateModule
     ],
     declarations: [ OrderComponent ],
     exports: [ OrderComponent ]

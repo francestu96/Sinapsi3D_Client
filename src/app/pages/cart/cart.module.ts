@@ -15,6 +15,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PayPalModule } from 'src/app/shared/paypal';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import { PayPalModule } from 'src/app/shared/paypal';
         NgImageSliderModule,
         MatProgressSpinnerModule,
         BrowserAnimationsModule,
+        TranslateModule,
 
         PayPalModule.init({
             clientId: "sb", // Using sandbox for testing purposes only

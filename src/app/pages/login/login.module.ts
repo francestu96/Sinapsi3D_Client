@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginComponent } from './login.component';
 import { PasswordForgotModalModule } from './password-forgot-modal/password-forgot-modal.module';
 import { PasswordForgotModalComponent } from './password-forgot-modal/password-forgot-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { PasswordForgotModalComponent } from './password-forgot-modal/password-f
         MatFormFieldModule,
         MatButtonModule,
         MatTooltipModule,
-        PasswordForgotModalModule
+        PasswordForgotModalModule,
+        TranslateModule
     ],
     declarations: [ LoginComponent ],
     exports: [ LoginComponent ],

@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/common';
 import { Location } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslationLoaderService } from './services/translate.service';
 
 var lastScrollTop = 0;
 var delta = 5;
@@ -16,7 +18,32 @@ var navbarHeight = 0;
 export class AppComponent implements OnInit {
     private _router: Subscription;
 
-    constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor( 
+            @Inject(DOCUMENT,)
+            private document: any,
+            private element : ElementRef, 
+            private renderer : Renderer2,
+            private router: Router, 
+            public location: Location,
+            private _translateService: TranslateService,
+		    private _translationLoaderService: TranslationLoaderService,
+        ) {
+        this._translateService.addLangs(['it-IT']);
+		// this._translateService.setDefaultLang(navigator.language);
+		// this._translateService.use(navigator.language);
+		this._translateService.setDefaultLang('it-IT');
+		this._translateService.use('it-IT');
+        
+        this._translationLoaderService.loadTranslations('form');
+        this._translationLoaderService.loadTranslations('navbar');
+        this._translationLoaderService.loadTranslations('footer');
+        this._translationLoaderService.loadTranslations('home');
+        this._translationLoaderService.loadTranslations('products');
+        this._translationLoaderService.loadTranslations('contacts');
+        this._translationLoaderService.loadTranslations('cart');
+        this._translationLoaderService.loadTranslations('order');
+    }
+
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 

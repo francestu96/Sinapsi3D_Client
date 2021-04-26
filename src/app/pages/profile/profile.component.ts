@@ -19,7 +19,6 @@ export class ProfileComponent {
   constructor(
     private authProxy: AuthProxy,
     private messageService: MessageService,
-    private route: ActivatedRoute,
     private router: Router
   ) {}
 

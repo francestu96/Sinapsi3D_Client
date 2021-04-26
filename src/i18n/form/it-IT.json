@@ -1,0 +1,25 @@
+{
+    "lang": "it-IT",
+    "data": {
+        "FORM": {
+            "TITLE_LOGIN": "Accedi con le credenziali",
+            "TITLE_REGISTER": "Registrati con le credenziali",
+            "TITLE_FORGOT": "Inserisci la tua email",
+            "TITLE_RESET": "Reimposta password",
+            "NAME": "Nome",
+            "EMAIL": "Email",
+            "PASSWORD": "Password",
+            "OLD_PASSWORD": "Vecchia Password",
+            "NEW_PASSWORD": "Nuova Password",
+            "REPEAT_PASSWORD": "Ripeti Password",
+            "LOGIN": "accedi",
+            "REGISTER": "crea account",
+            "REGEX": "almeno 8 caratteri, maiuscolo e numero",
+            "INVALID": "Inserire credenziali valide",
+            "FILL": "Compilare tutti i campi",
+            "FORGOT_PASSWORD": "Password dimenticata?",
+            "NEW": "Crea Account",
+            "SUBMIT": "Invia"
+        }
+    }
+}

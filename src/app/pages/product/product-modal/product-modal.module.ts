@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { TranslateModule } from '@ngx-translate/core';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { ProductModalComponent } from './product-modal.component';
 
@@ -26,7 +27,8 @@ import { ProductModalComponent } from './product-modal.component';
 		MatDialogModule,
 		CommonModule,
 		FlexLayoutModule,
-		NgImageSliderModule
+		NgImageSliderModule,
+        TranslateModule
 	],
 	declarations: [ProductModalComponent],
 	exports: [ProductModalComponent]

@@ -1,0 +1,19 @@
+{
+    "lang": "it-IT",
+    "data": {
+        "HOME": {
+            "HEADER_TEXT": "Utilizziamo le migliori stampanti 3D sul mercato per creare tutti i prodotti richiesti. <br>Chiedi subito un preventivo!",
+            "HEADER_QUOTATION": "richiedi un preventivo",
+            "HEADER_SOCIAL": "<span class='text-warning'>Seguici sui nostri</span> Social",
+            "TITLE": "Stampa 3D",
+            "TITLE_SUB": "Per tutte le tue esigenze",
+            "TITLE_DESC_1": "Siamo un team di Genova nato nel 2018 con molta esperienza nel settore. Progettiamo e sviluppiamo i migliori oggetti in stampa 3D sul mercato attuale. Non esistare a ",
+            "TITLE_LINK": "contattarci",
+            "TITLE_DESC_2": " per richiedere un preventivo.",
+            "SECTION_2_TITLE": "Stampa 3D, la tecnologia del futuro",
+            "SECTION_2_DESC": "La produzione additiva è ormai da anni in una fase di crescita impressionante. Grazie allo sviluppo di svariati nuovi materiali e alla continua ottimizzazione dei processi produttivi si aprono costantemente nuovi campi di applicazione per la stampa. Mentre le tecniche di asportazione o modellazione classiche quali fresatura, forgiatura, saldatura, foratura o saldobrasatura non riescono a realizzare geometrie complesse, grazie ai processi additivi è possibile creare senza problemi anche sottosquadri, cavità o strutture interne.",
+            "SECTION_3_TITLE": "Vantaggi della stampa 3D",
+            "SECTION_3_DESC": "I vantaggi fondamentali della stampa 3D rispetto ai processi produttivi convenzionali diventano sempre più chiari: mentre le tecniche di asportazione o modellazione quali fresatura, forgiatura, saldatura, foratura o saldobrasatura si scontrano con i propri limiti nella realizzazione di geometrie complesse, grazie ai processi additivi è possibile realizzare senza problemi anche sottosquadri, cavità o strutture interne. Questo grado di libertà acquisito nella progettazione offre un impulso all’innovazione che si estende a più settori."
+        }
+    }
+}

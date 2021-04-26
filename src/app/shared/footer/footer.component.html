@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row row-grid align-items-center" [ngClass]="{'my-md': getPath()!=='/user-profile' && getPath()!=='/register' && getPath()!=='/login', 'mb-5':getPath()==='/user-profile' || getPath()==='/register' || getPath()==='/login'}">
       <div class="col-lg-6">
-        <h3 class="text-primary font-weight-light mb-2">Grazie per averci scelto!</h3>
-        <h4 class="mb-0 font-weight-light">Tenetevi aggiornati sui nostri prodotti seguendoci su tutti i social.</h4>
+        <h3 class="text-primary font-weight-light mb-2">{{'FOOTER.TITLE' | translate}}</h3>
+        <h4 class="mb-0 font-weight-light">{{'FOOTER.DESCRIPTION' | translate}}</h4>
       </div>
       <div class="col-lg-6 text-lg-center btn-wrapper">
         <a target="_blank" href="https://www.youtube.com/channel/UCkIlnm3o_d7PmxoOMnYXk7w" class="btn btn-neutral btn-icon-only btn-youtube btn-round btn-lg" ngbTooltip="Follow us">

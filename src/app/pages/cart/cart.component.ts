@@ -29,23 +29,25 @@ export class CartComponent implements OnInit {
 
     ngOnInit(): void{
         this.cartProxy.get().subscribe(cart => {
-            for (var item of cart?.products){
-                var currentImages = [];
-                for (var filename of item.product.images){
-                    currentImages.push({
-                        image: environment.baseURL + "/image/original/" + filename,
-                        thumbImage: environment.baseURL + "/image/thumb/" + filename,
+            if (cart && cart.products){
+                for (var item of cart.products){
+                    var currentImages = [];
+                    for (var filename of item.product.images){
+                        currentImages.push({
+                            image: environment.baseURL + "/image/original/" + filename,
+                            thumbImage: environment.baseURL + "/image/thumb/" + filename,
+                        });
+                    }
+    
+                    this.pageStruct.push({
+                        product: item.product,
+                        quantity: item.quantity,
+                        images: currentImages,
+                        isLoading: false
                     });
+    
+                    this.totalPrice += item.product.price * item.quantity;
                 }
-
-                this.pageStruct.push({
-                    product: item.product,
-                    quantity: item.quantity,
-                    images: currentImages,
-                    isLoading: false
-                });
-
-                this.totalPrice += item.product.price * item.quantity;
             }
         });
     }

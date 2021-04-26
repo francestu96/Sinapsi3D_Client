@@ -18,7 +18,7 @@
               <div class="card-body px-lg-5 py-lg-5">
                 <div class="text-center text-muted mb-4">
                   <div *ngIf="!this.errorMessage; else errorTemplate">
-                    <small>Accedi con le credenziali</small>
+                    <small>{{'FORM.TITLE_LOGIN' | translate}}</small>
                   </div>
                   <ng-template #errorTemplate>
                     <small style="color: #800000;">{{this.errorMessage}}</small>
@@ -29,7 +29,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Email" type="email" (focus)="focus=true" (blur)="focus=false">
+                    <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="{{'FORM.EMAIL' | translate}}" type="email" (focus)="focus=true" (blur)="focus=false">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -37,7 +37,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" type="password" (focus)="focus1=true" (blur)="focus1=false">
+                    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="{{'FORM.PASSWORD' | translate}}" type="password" (focus)="focus1=true" (blur)="focus1=false">
                   </div>
                 </div>
                 <div class="text-center">
@@ -48,12 +48,12 @@
             <div class="row mt-3">
               <div class="col-6">
                 <a href="javascript:void(0)" (click)="this.openDialog()" class="text-light">
-                  <small>Forgot password?</small>
+                  <small>{{'FORM.FORGOT_PASSWORD' | translate}}</small>
                 </a>
               </div>
               <div class="col-6 text-right">
                 <a [routerLink]="['/register']" class="text-light">
-                  <small>Create new account</small>
+                  <small>{{'FORM.NEW' | translate}}</small>
                 </a>
               </div>
             </div>

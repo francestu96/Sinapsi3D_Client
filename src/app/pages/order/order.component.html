@@ -2,14 +2,14 @@
     <section fxFlex style="height: 230px; background: linear-gradient(150deg, #32325d 15%, #32325d 70%, #32325d 94%)">
         <span
             style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
-        <h2 style="text-align: center;font-weight: bold;color: white;">I miei ordini</h2>
+        <h2 style="text-align: center;font-weight: bold;color: white;">{{'ORDER.TITLE' | translate}}</h2>
     </section>
 
     <div fxLayout="column" fxLayoutAlign="space-around center">
         <ng-container *ngFor="let item of this.pageStruct">
             <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;width: 50%;position: relative;">
                 <div fxLayout="row">
-                    <p fxFlex class="text-muted resizable-text ml-3">Ordine effettuato alle <u>{{item.order.createdAt | date: 'hh:mm'}}</u> del <u>{{item.order.createdAt | date: 'dd/MM/yyyy'}}</u></p>
+                    <p fxFlex class="text-muted resizable-text ml-3">{{'ORDER.TIME' | translate}}<u>{{item.order.createdAt | date: 'hh:mm'}}</u>{{'ORDER.DATE' | translate}}<u>{{item.order.createdAt | date: 'dd/MM/yyyy'}}</u></p>
                     <p fxLayoutAlign="end" fxFlex class="text-muted resizable-text mr-3">ID: #<u>{{item.order._id}}</u></p>
                 </div>
 
@@ -25,17 +25,17 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <span class="ml-3 resizable-text">Indirizzo di Spedizione:</span>
+                <span class="ml-3 resizable-text">{{'ORDER.ADDRESS' | translate}}:</span>
                 <p class="ml-3 resizable-text"><u>{{item.order.payer.address.address_line_1}}</u>, <u>{{item.order.payer.address.admin_area_2}}</u> (<u>{{item.order.payer.address.admin_area_1}}</u>), <u>{{item.order.payer.address.postal_code}}</u></p>
-                <span class="ml-3 resizable-text">E-mail di riferimento per il pagamento:</span>
+                <span class="ml-3 resizable-text">{{'ORDER.EMAIL' | translate}}: </span>
                 <p class="ml-3 resizable-text"><u>{{item.order.payer.email_address}}</u></p>
-                <span style="float: right;" class="mr-3 mb-2 resizable-text">Prezzo totale ordine: <u>{{item.totalPrice | number : '1.2-2'}}€</u></span>
+                <span style="float: right;" class="mr-3 mb-2 resizable-text">{{'ORDER.TOTAL' | translate}}: <u>{{item.totalPrice | number : '1.2-2'}}€</u></span>
             </div>
         </ng-container>
     </div>
 
     <div *ngIf="this.pageStruct.length === 0" fxLayout="column" fxLayoutAlign="center center" class="mt-4">
-        <h2 class="text-muted">Ancora nessun ordine effettuato</h2>
-        <p class="text-muted">Vai alla sezione <a [routerLink]="['/products']" ><u>Prodotti</u></a> per acquistare qualcosa!</p>
+        <h2 class="text-muted">{{'ORDER.NO_ITEMS' | translate}}</h2>
+            <p class="text-muted">{{'ORDER.NO_ITEMS_1' | translate}}<a [routerLink]="['/products']" ><u>{{'ORDER.NO_ITEMS_LINK' | translate}}</u></a>{{'ORDER.NO_ITEMS_2' | translate}}</p>
     </div>
 </main>

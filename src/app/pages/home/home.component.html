@@ -18,21 +18,18 @@
           <div class="row align-items-center justify-content-center">
             <div class="text-center">
               <img src="./assets/img/brand/sinapsi3d.png" style="width: 70%;" class="img-fluid">
-              <p class="lead text-white">
-                  Utilizziamo le migliori stampanti 3D sul mercato per creare 
-                  tutti i prodotti richiesti. <br> Chiedi subito un preventivo!
-              </p>
+              <p class="lead text-white" [innerHTML]="'HOME.HEADER_TEXT' | translate"></p>
               <div class="btn-wrapper mt-5">
                 <a href="mailto:sinapsi3d@outlook.it"
                   class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
                   <span class="btn-inner--icon"><i class="ni ni-email-83"></i></span>
-                  <span class="btn-inner--text">Richiedi un preventivo</span>
+                  <span class="btn-inner--text">{{'HOME.HEADER_QUOTATION' | translate}}</span>
                 </a>
                 <a href="https://www.instagram.com/sinapsi3d/?hl=it"
                   class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0" target="_blank">
                   <span class="btn-inner--icon"><i class="fa fa-instagram"></i></span>
-                  <span class="btn-inner--text">
-                    <span class="text-warning">Seguici sui nostri</span> Social</span>
+                  <span class="btn-inner--text" [innerHTML]="'HOME.HEADER_SOCIAL' | translate">
+                  </span>
                 </a>
               </div>
             </div>
@@ -65,10 +62,10 @@
                             <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                                 <div class="u-container-layout u-valign-top-lg u-valign-top-xl u-container-layout-1">
                                     <h2 class="u-custom-font u-font-ubuntu u-text u-text-1 u-text-palette-2-base">
-                                        <b>Stampa 3D</b>
+                                        <b>{{ 'HOME.TITLE' | translate }}</b>
                                     </h2>
-                                    <h2>Per tutte le tue esigenze</h2>
-                                    <p class="u-text u-text-2">Siamo un team di Genova nato nel 2018 con molta esperienza nel settore. Progettiamo e sviluppiamo i migliori oggetti in stampa 3D sul mercato attuale. Non esistare a <a [routerLink]="['/contacts']" class="u-active-none u-border-1 u-border-grey-75 u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">contattarci</a> per richiedere un preventivo.&nbsp;
+                                    <h2>{{ 'HOME.TITLE_SUB' | translate }}</h2>
+                                    <p class="u-text u-text-2">{{ 'HOME.TITLE_DESC_1' | translate }}<a [routerLink]="['/contacts']" class="u-active-none u-border-1 u-border-grey-75 u-btn u-button-link u-button-style u-hover-none u-none u-text-body-color u-btn-1">{{'HOME.TITLE_LINK' | translate}}</a>{{'HOME.TITLE_DESC_2' | translate}}
                                     </p>
                                     <a [routerLink]="['/products']" class="u-btn u-btn-round u-button-style u-hover-black u-palette-2-base u-radius-50 u-btn-3">Scopri prodotti in vendita</a>
                                 </div>
@@ -109,14 +106,9 @@
                         </div>
                         <div style="text-align: end;" class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                             <div class="u-container-layout u-valign-top-lg u-valign-top-xl u-container-layout-1">
-                                <h2 class="mt-md-0 mt-5">Vantaggi della stampa 3D</h2>
+                                <h2 class="mt-md-0 mt-5">{{'HOME.SECTION_2_TITLE' | translate}}</h2>
                                 <p class="u-text u-text-2">
-                                    I vantaggi fondamentali della stampa 3D rispetto ai processi produttivi convenzionali diventano 
-                                    sempre più chiari: mentre le tecniche di asportazione o modellazione quali fresatura, 
-                                    forgiatura, saldatura, foratura o saldobrasatura si scontrano con i propri limiti nella 
-                                    realizzazione di geometrie complesse, grazie ai processi additivi è possibile realizzare 
-                                    senza problemi anche sottosquadri, cavità o strutture interne. Questo grado di libertà 
-                                    acquisito nella progettazione offre un impulso all’innovazione che si estende a più settori.
+                                    {{'HOME.SECTION_2_DESC' | translate}}
                                 </p>
                             </div>
                         </div>
@@ -149,14 +141,9 @@
                         <div class="u-layout-row">
                             <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                                 <div class="u-container-layout u-valign-top-lg u-valign-top-xl u-container-layout-1">
-                                    <h2 class="mt-md-0 mt-5">Stampa 3D, la tecnologia del futuro</h2>
+                                    <h2 class="mt-md-0 mt-5">{{'HOME.SECTION_3_TITLE' | translate}}</h2>
                                     <p class="u-text u-text-2">
-                                        La produzione additiva è ormai da anni in una fase di crescita impressionante. 
-                                        Grazie allo sviluppo di svariati nuovi materiali e alla continua ottimizzazione dei processi produttivi 
-                                        si aprono costantemente nuovi campi di applicazione per la stampa 3D nei più disparati settori. 
-                                        E proprio nel settore industriale, la produzione di prototipi continua a rappresentare uno 
-                                        dei campi di applicazione chiave, guadagnando tuttavia continuamente spazio anche nella produzione 
-                                        di prodotti in serie, ad esempio per l’industria automobilistica o nel settore della realizzazione di utensili e macchine.
+                                        {{'HOME.SECTION_3_DESC' | translate}}
                                     </p>
                                 </div>
                             </div>

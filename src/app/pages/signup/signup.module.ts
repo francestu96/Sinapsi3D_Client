@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SignupComponent } from './signup.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { SignupComponent } from './signup.component';
         MatInputModule,
         MatFormFieldModule,
         MatButtonModule,
-        MatTooltipModule
+        MatTooltipModule,
+        TranslateModule
     ],
     declarations: [ SignupComponent ],
     exports: [ SignupComponent ],

@@ -1,0 +1,12 @@
+{
+    "lang": "it-IT",
+    "data": {
+        "PRODUCT": {
+            "TITLE": "Prodotti",
+            "FILTER": "Cerca nel Nome o nella Descrizione del prodotto...",
+            "PRICE": "Prezzo",
+            "ADD": "Aggiungi dal carrello",
+            "QUANTITY": "Quntità"
+        }
+    }
+}

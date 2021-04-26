@@ -12,6 +12,7 @@ import { ProductComponent } from './product.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductModalModule } from './product-modal/product-modal.module';
 import { ProductModalComponent } from './product-modal/product-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
         MatFormFieldModule,
         MatButtonModule,
         MatTooltipModule,
-        ProductModalModule
+        ProductModalModule,
+        TranslateModule
     ],
     declarations: [ ProductComponent ],
     exports: [ ProductComponent ],

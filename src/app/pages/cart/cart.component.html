@@ -2,17 +2,17 @@
     <section fxFlex style="height: 230px; background: linear-gradient(150deg, #32325d 15%, #32325d 70%, #32325d 94%)">
         <span
             style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
-        <h2 style="text-align: center;font-weight: bold;color: white;">Carrello</h2>
+        <h2 style="text-align: center;font-weight: bold;color: white;">{{'CART.TITLE' | translate}}</h2>
     </section>
 
     <div fxLayout="column" fxLayoutAlign="space-around center">
         <ng-container *ngFor="let item of this.pageStruct">
-            <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;width: 50%;position: relative;">
+            <div class="m-3" style="display: block;border: 1px solid grey;border-radius: 20px;width: 50%;position: relative;" fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
                 <div *ngIf="item.isLoading" style="position: absolute; z-index: 1; top:0px; bottom:0px; left:0px; right:0px; background: rgba(0, 0, 0, 0.15);">
                     <mat-spinner style="margin: auto; top:40%"></mat-spinner>
                 </div>
                 
-                <div fxLayout="row">
+                <div fxLayout="row wrap">
 		            <div fxFlex="50" class="m-2" #container>
                         <ng-image-slider
                             [images]="item.images" 
@@ -20,21 +20,21 @@
                             [imageSize]="{width: container.offsetWidth, height: container.offsetWidth, space:0}">
                         </ng-image-slider>
                     </div>
-                    <div fxFlex="50" fxLayout="column" class="p-4">
+                    <div fxFlex fxLayout="column" class="p-4">
                         <div fxFlex fxLayout="column">
                             <h3 class="resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">{{item.product.name}}</h3>
                             <p class="text-muted resizable-text" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">{{item.product.description}}</p>
                         </div>
-                        <div fxLayout="row" fxLayoutAlign="center center" class="p-0">
-                            <div fxFlex="70" class="resizable-text">
-                                Prezzo:&nbsp;<u>{{item.product.price | number : '1.2-2'}}€</u>
+                        <div fxLayout="row wrap" fxLayoutAlign="start center" class="p-0">
+                            <div fxFlex="50" class="d-none d-lg-block resizable-text">
+                                {{'CART.PRICE' | translate}}:&nbsp;<u>{{item.product.price | number : '1.2-2'}}€</u>
                             </div>
                             <mat-form-field fxFlex="20" style="margin-bottom: -1.25em;text-align: right">
-                                <mat-label fxFlex>Quantità</mat-label>
+                                <mat-label fxFlex>{{'CART.QUANTITY' | translate}}</mat-label>
                                 <input fxFlex matInput [(ngModel)]='item.quantity' (change)="quantityChanged(item.product._id)" min="0" type="number" style="text-align: right">
                             </mat-form-field>
                             <div fxFlex="5"></div>
-                            <button fxFlex="5" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="Rimuovi al carrello" (click)="remove(item)">
+                            <button fxFlex="5" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="{{'CART.REMOVE' | translate}}" (click)="remove(item)">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </div>
@@ -45,7 +45,7 @@
     </div>
 
     <div *ngIf="totalPrice > 0; else empty" fxLayout="column" style="width: 80%;font-weight: bold;">
-        <h3 class="mt-4 text-muted" fxLayoutAlign="end center" fxFlex="20">Prezzo totale:&nbsp;<u>{{totalPrice | number : '1.2-2'}}€</u></h3>
+        <h3 class="mt-4 text-muted" fxLayoutAlign="end center" fxFlex="20">{{'CART.TOTAL' | translate}}:&nbsp;<u>{{totalPrice | number : '1.2-2'}}€</u></h3>
         <div class="mt-2" fxLayoutAlign="end center">
             <wm-paypal 
                 [style.width.px]="220" [height]="35" layout="vertical" shape="pill" color="gold" label="pay"
@@ -55,8 +55,8 @@
     
     <ng-template #empty>
         <div fxLayout="column" fxLayoutAlign="center center" class="mt-4">
-            <h2 class="text-muted">Ancora nessun oggetto nel carrello</h2>
-            <p class="text-muted">Vai alla sezione <a [routerLink]="['/products']" ><u>Prodotti</u></a> per acquistare qualcosa!</p>
+            <h2 class="text-muted">{{'CART.NO_ITEMS' | translate}}</h2>
+            <p class="text-muted">{{'CART.NO_ITEMS_1' | translate}}<a [routerLink]="['/products']" ><u>{{'CART.NO_ITEMS_LINK' | translate}}</u></a>{{'CART.NO_ITEMS_2' | translate}}</p>
         </div>
     </ng-template>
 </main>

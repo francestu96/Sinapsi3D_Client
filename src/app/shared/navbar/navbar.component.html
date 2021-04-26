@@ -25,11 +25,20 @@
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/products']">Prodotti</a>
+            <a class="nav-link" [routerLink]="['/products']">{{'NAVBAR.PRODUCTS' | translate}}</a>
         </li>
         <li class="nav-item" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '15px'}">
-            <a class="nav-link" [routerLink]="['/contacts']">Contatti</a>
+            <a class="nav-link" [routerLink]="['/contacts']">{{'NAVBAR.CONTACTS' | translate}}</a>
         </li>
+        <li class="nav-item dropdown d-none">
+            <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+              <i class="ni ni-collection d-lg-none"></i>
+              <img [src]="this.selectedLang" class="nav-link-inner--text">
+            </a>
+            <div class="dropdown-menu" style="min-width: 50px;">
+              <img *ngFor="let lang of this.langIconPaths | keyvalue" class="dropdown-item" [src]="lang.value" (click)="changeLang(lang.key)">
+            </div>
+          </li>
       </ul>
       <ul *ngIf="!this.identity; else signedin" class="navbar-nav align-items-lg-center ml-lg-auto">
           <li class="nav-item">
@@ -51,10 +60,10 @@
             </a>
           </li>
         <li class="nav-item d-lg-block ml-lg-2" [ngStyle]="{'margin-bottom': this.isCollapsed ? '0px' : '10px', 'margin-top': this.isCollapsed ? '0px' : '20px'}">
-          <button [routerLink]="['/login']" mat-raised-button>Accedi <mat-icon>login</mat-icon></button> 
+          <button [routerLink]="['/login']" mat-raised-button>{{'NAVBAR.LOGIN' | translate}}<mat-icon>login</mat-icon></button> 
         </li>
         <li class="nav-item d-lg-block ml-lg-2">
-          <button [routerLink]="['/register']" mat-raised-button style="background-color: #32325d;color: white;">Registrati<mat-icon class="ml-2">person_add_alt_1</mat-icon></button> 
+          <button [routerLink]="['/register']" mat-raised-button style="background-color: #32325d;color: white;">{{'NAVBAR.REGISTER' | translate}}<mat-icon class="ml-2">person_add_alt_1</mat-icon></button> 
         </li>
       </ul>
       <ng-template #signedin>
@@ -78,7 +87,7 @@
                 </a>
                 </li>
           <li class="nav-item ml-3">
-            <span style="color: rgba(255, 255, 255, 0.95); font-size: 0.9rem;">Bentornato <span style="font-style: italic;font-weight: bold;">{{this.identity.name}}</span></span>
+            <span style="color: rgba(255, 255, 255, 0.95); font-size: 0.9rem;">{{'NAVBAR.WELCOME' | translate}}<span style="font-style: italic;font-weight: bold;">{{this.identity.name}}</span></span>
           </li>
           <li class="nav-item profile-icon" ngbDropdown placement="bottom-right" style="padding-top: 8px;">
             <a class="nav-link nav-link-icon no-caret" id="navbar-default_dropdown_1" ngbDropdownToggle>
@@ -86,24 +95,24 @@
             </a>
             <div class="dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1" ngbDropdownMenu>
               <a *ngIf="!this.isAdmin()" [routerLink]="['/cart']" class="dropdown-item">
-                <span>Carrello</span>
+                <span>{{'NAVBAR.CART' | translate}}</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_cart</mat-icon>
               </a>
               <a *ngIf="!this.isAdmin()" [routerLink]="['/order']" class="dropdown-item">
-                <span>I miei ordini</span>
+                <span>{{'NAVBAR.ORDERS' | translate}}</span>
                 <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
               </a>
               <a *ngIf="this.isAdmin()" [routerLink]="['/admin-product']" class="dropdown-item">
-                <span>Aggiungi prodotto</span>
+                <span>{{'NAVBAR.ADMIN_ADD' | translate}}</span>
                 <mat-icon style="position: absolute;right: 0.5em;">add_circle_outline</mat-icon>
               </a>
               <div class="dropdown-divider"></div>
               <a [routerLink]="['/profile']" class="dropdown-item">
-                <span>Cambia password</span>
+                <span>{{'NAVBAR.CHANGE_PWD' | translate}}</span>
                 <mat-icon style="position: absolute;right: 0.5em;">manage_accounts</mat-icon>
               </a>
               <a class="dropdown-item" (click)="this.signOut()">
-                <span>Esci</span>
+                <span>{{'NAVBAR.LOGOUT' | translate}}</span>
                 <mat-icon style="position: absolute;right: 0.5em;">logout</mat-icon>
               </a>
             </div>

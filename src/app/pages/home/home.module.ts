@@ -17,6 +17,7 @@ import { HomeComponent } from './home.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductModalComponent } from '../product/product-modal/product-modal.component';
 import { ProductModalModule } from '../product/product-modal/product-modal.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { ProductModalModule } from '../product/product-modal/product-modal.modul
         ProductModalModule,
         MatDividerModule,
         MatGridListModule,
-        LightboxModule
+        LightboxModule,
+        TranslateModule
     ],
     declarations: [ HomeComponent ],
     exports: [ HomeComponent ],

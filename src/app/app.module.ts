@@ -27,6 +27,8 @@ import { ProfileModule } from './pages/profile/profile.module';
 import { AuthAdminGuardService } from './services/auth.admin.guard.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminProdctModule } from './pages/admin/admin-product.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { FlexModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { AdminProdctModule } from './pages/admin/admin-product.module';
     BrowserModule,
     NgbModule,
     FormsModule,
+    FlexModule,
     RouterModule,
     AppRoutingModule,
     LoginModule,
@@ -54,7 +57,9 @@ import { AdminProdctModule } from './pages/admin/admin-product.module';
     HttpClientModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    TranslateModule.forRoot()
+
   ],
   providers: [AuthInterceptorProviders, AuthGuardService, AuthAdminGuardService],
   bootstrap: [AppComponent]

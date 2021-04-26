@@ -2,11 +2,11 @@
     <section fxFlex style="height: 230px; background: linear-gradient(150deg, #32325d 15%, #32325d 70%, #32325d 94%)">
         <span
             style="height: 150px;width: 150px;margin-left: -4%;bottom: auto;background: rgba(255, 255, 255, 0.1);display: block;border-radius: 50%;"></span>
-        <h2 style="text-align: center;font-weight: bold;color: white;">Prodotti</h2>
+        <h2 style="text-align: center;font-weight: bold;color: white;">{{'PRODUCT.TITLE' | translate}}</h2>
     </section>
 
   <mat-form-field style="margin-top:15px; margin-right:5%; margin-left:5%;">
-      <mat-label>Cerca nel Nome o nella Descrizione del prodotto...</mat-label>
+      <mat-label>{{'PRODUCT.FILTER' | translate}}</mat-label>
       <input matInput [(ngModel)]='filter' (ngModelChange)="$event.length > 3 ? getProducts($event) : ($event.length == 0 ? getProducts() : null)">
       <button mat-icon-button matSuffix (click)="this.clearFilter()">
         <mat-icon style="font-size: x-large;">cancel</mat-icon>
@@ -28,17 +28,17 @@
             </div>
             <div *ngIf="!this.isAdmin(); else admin" fxFlex fxLayoutAlign="end end" class="p-0">
               <mat-form-field fxFlex="30" style="margin-bottom: -1.25em;text-align: right">
-                <mat-label fxFlex>Quantità</mat-label>
+                <mat-label fxFlex>{{'PRODUCT.QUANTITY' | translate}}</mat-label>
                 <input fxFlex matInput [(ngModel)]='this.quantities[product._id]' type="number" min="0" style="text-align: right">
               </mat-form-field>
               <div fxFlex="5"></div>
-              <button fxFlex="20" (click)="this.addToCart(product._id)" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="Aggiungi al carrello">
+              <button fxFlex="20" (click)="this.addToCart(product._id)" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="{{'PRODUCT.ADD' | translate}}">
                 <mat-icon>add_shopping_cart</mat-icon>
               </button>
             </div>
             <ng-template #admin>
                 <div fxFlex fxLayoutAlign="end end" class="p-0">
-                    <button fxFlex="20" (click)="this.deleteProduct(product._id)" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="Aggiungi al carrello">
+                    <button fxFlex="20" (click)="this.deleteProduct(product._id)" mat-raised-button style="background-color: #32325d;color: white;" matTooltip="{{'PRODUCT.ADD' | translate}}">
                       <mat-icon>delete</mat-icon>
                     </button>
                 </div>
