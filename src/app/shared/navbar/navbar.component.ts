@@ -27,12 +27,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.langIconPaths.set("it-IT", "./assets/img/brand/it-IT.png");
-    // this.langIconPaths.set("en-US", "./assets/img/brand/en-US.png");
+    this.langIconPaths.set("en-US", "./assets/img/brand/en-US.png");
     // this.langIconPaths.set("fr-FR", "./assets/img/brand/fr-FR.png");
     // this.langIconPaths.set("es-ES", "./assets/img/brand/es-ES.png");
 
-    // this.selectedLang = this.langIconPaths.get(navigator.language);
-    this.selectedLang = this.langIconPaths.get("it-IT");
+    this.selectedLang = this.langIconPaths.get(navigator.language);
+    // this.selectedLang = this.langIconPaths.get("it-IT");
 
     this.router.events.subscribe((event) => {
         this.isCollapsed = true;

@@ -2,7 +2,16 @@
     "lang": "en-US",
     "data": {
         "NAVBAR": {
-            
+            "PRODUCTS": "Products",
+            "CONTACTS": "Info & Contacts",
+            "WELCOME": "Welcome ",
+            "CART": "Cart",
+            "ORDERS": "My Orders",
+            "CHANGE_PWD": "Change Password",
+            "ADMIN_ADD": "Add Products",
+            "LOGOUT": "Logout",
+            "LOGIN": "Sign In",
+            "REGISTER": "Sign Up"
         }
     }
 }

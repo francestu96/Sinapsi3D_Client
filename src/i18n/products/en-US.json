@@ -2,7 +2,11 @@
     "lang": "en-US",
     "data": {
         "PRODUCT": {
-            
+            "TITLE": "Products",
+            "FILTER": "Search in the Name or in the Description of the product...",
+            "PRICE": "Price",
+            "ADD": "Add to Cart",
+            "QUANTITY": "Quantity"
         }
     }
 }

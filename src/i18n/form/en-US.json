@@ -2,7 +2,24 @@
     "lang": "en-US",
     "data": {
         "FORM": {
-            
+            "TITLE_LOGIN": "Sign In with your credentials",
+            "TITLE_REGISTER": "Sign Up with your credentials",
+            "TITLE_FORGOT": "Enter your email",
+            "TITLE_RESET": "Reset Password",
+            "NAME": "Name",
+            "EMAIL": "Email",
+            "PASSWORD": "Password",
+            "OLD_PASSWORD": "Old Password",
+            "NEW_PASSWORD": "New Password",
+            "REPEAT_PASSWORD": "Re-enter Password",
+            "LOGIN": "sign in",
+            "REGISTER": "create new account",
+            "REGEX": "at leats 8 characters, upper case and number",
+            "INVALID": "Enter valid credentials",
+            "FILL": "Fill in all the fields",
+            "FORGOT_PASSWORD": "Forgot Password?",
+            "NEW": "Create Account",
+            "SUBMIT": "Submit"
         }
     }
 }

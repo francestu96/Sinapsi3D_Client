@@ -2,18 +2,19 @@
     "lang": "en-US",
     "data": {
         "HOME": {
-            "HEADER_TEXT": "We use the best 3D printers on the market in order to make all demanded products. Claim your price quotation now!",
+            "HEADER_TEXT": "We use the best 3D printers on the market in order to make all demanded products. <br>Claim your price quotation now!",
             "HEADER_QUOTATION": "claim a price quotation",
-            "HEADER_SOCIAL": "follow us on our social",
+            "HEADER_SOCIAL": "<span class='text-warning'>Follow us on our</span> Social",
             "TITLE": "3D Printing",
             "TITLE_SUB": "For all your needs",
+            "TITLE_BUTTON": "Find out our for sale products",
             "TITLE_DESC_1": "We are a team born in Genoa, Italy, in 2018 with a lot of experience in this field. We desing and develop the best 3D printed artifacts on the actual market. Do not esitate to ",
             "TITLE_LINK": "contact us",
             "TITLE_DESC_2": " to claim a price quotation.",
-            "SECTION_2_TITLE": "Vantaggi della stampa 3D",
-            "SECTION_2_DESC": "I vantaggi fondamentali della stampa 3D rispetto ai processi produttivi convenzionali diventano sempre più chiari: mentre le tecniche di asportazione o modellazione quali fresatura, forgiatura, saldatura, foratura o saldobrasatura si scontrano con i propri limiti nella realizzazione di geometrie complesse, grazie ai processi additivi è possibile realizzare senza problemi anche sottosquadri, cavità o strutture interne. Questo grado di libertà acquisito nella progettazione offre un impulso all’innovazione che si estende a più settori.",
-            "SECTION_3_TITLE": "Stampa 3D, la tecnologia del futuro",
-            "SECTION_3_DESC": "La produzione additiva è ormai da anni in una fase di crescita impressionante. Grazie allo sviluppo di svariati nuovi materiali e alla continua ottimizzazione dei processi produttivi si aprono costantemente nuovi campi di applicazione per la stampa 3D nei più disparati settori. E proprio nel settore industriale, la produzione di prototipi continua a rappresentare uno dei campi di applicazione chiave, guadagnando tuttavia continuamente spazio anche nella produzione di prodotti in serie, ad esempio per l’industria automobilistica o nel settore della realizzazione di utensili e macchine."
+            "SECTION_2_TITLE": "Advantages of 3D printing",
+            "SECTION_2_DESC": "The fundamental advantages of 3D printing compared to conventional production processes are becoming increasingly clear: while the removal or modeling techniques such as milling, forging, welding, drilling or brazing come up against their limits in the realization of complex geometries, thanks to additive processes is Even undercuts, cavities or internal structures can be created without problems. This degree of freedom acquired in the design offers an impulse to innovation that extends to multiple sectors.",
+            "SECTION_3_TITLE": "3D printing, the technology of the future",
+            "SECTION_3_DESC": "Additive manufacturing has been in an impressive growth phase for years now. Thanks to the development of various new materials and the continuous optimization of production processes, new fields of application for 3D printing are constantly opening up in the most diverse sectors. And precisely in the industrial sector, the production of prototypes continues to represent one of the key fields of application, however, continuously gaining space also in the production of series products, for example for the automotive industry or in the sector of making tools and machines."
         }
     }
 }

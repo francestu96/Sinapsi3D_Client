@@ -2,7 +2,15 @@
     "lang": "en-US",
     "data": {
         "CART": {
-            
+            "TITLE": "Cart",
+            "PRICE": "Price",
+            "TOTAL": "Total Price",
+            "REMOVE": "Remove from Cart",
+            "QUANTITY": "Quantity",
+            "NO_ITEMS": "No items in your cart yet",
+            "NO_ITEMS_1": "Go to the ",
+            "NO_ITEMS_LINK": "Products section",
+            "NO_ITEMS_2": " to buy something!"
         }
     }
 }

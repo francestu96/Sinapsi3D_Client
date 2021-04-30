@@ -2,7 +2,16 @@
     "lang": "en-US",
     "data": {
         "ORDER": {
-            
+            "TITLE": "My Orders",
+            "TIME": "Order made at ",
+            "DATE": " on ",
+            "ADDRESS": "Shipping address",
+            "EMAIL": "Payment reference email",
+            "TOTAL": "Order total price",
+            "NO_ITEMS": "No order has been done yet",
+            "NO_ITEMS_1": "Go to ",
+            "NO_ITEMS_LINK": "Products section",
+            "NO_ITEMS_2": " to buy something!"
         }
     }
 }

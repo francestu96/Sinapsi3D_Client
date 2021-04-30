@@ -8,7 +8,7 @@
             "ADDRESS": "Indirizzo di Spedizione",
             "EMAIL": "E-mail di riferimento per il pagamento:",
             "TOTAL": "Prezzo totale ordine",
-            "NO_ITEMS": "Ancora nessun oggetto nel carrello",
+            "NO_ITEMS": "Ancora nessun ordine effettuato",
             "NO_ITEMS_1": "Vai alla sezione ",
             "NO_ITEMS_LINK": "Prodotti",
             "NO_ITEMS_2": " per acquistare qualcosa!"
