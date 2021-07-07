@@ -9,9 +9,10 @@
             "ORDERS": "I miei Ordini",
             "CHANGE_PWD": "Cambia Password",
             "ADMIN_ADD": "Aggiungi Prodotto",
+            "ADMIN_ORDERS": "Tutti gli Ordini",
             "LOGOUT": "Esci",
             "LOGIN": "Accedi",
-            "REGISTER": "Resgistrati"
+            "REGISTER": "Registrati"
         }
     }
 }

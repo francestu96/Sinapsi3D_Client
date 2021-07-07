@@ -9,6 +9,7 @@
             "ORDERS": "My Orders",
             "CHANGE_PWD": "Change Password",
             "ADMIN_ADD": "Add Products",
+            "ADMIN_ORDERS": "All the Orders",
             "LOGOUT": "Logout",
             "LOGIN": "Sign In",
             "REGISTER": "Sign Up"

@@ -106,6 +106,10 @@
                 <span>{{'NAVBAR.ADMIN_ADD' | translate}}</span>
                 <mat-icon style="position: absolute;right: 0.5em;">add_circle_outline</mat-icon>
               </a>
+              <a *ngIf="this.isAdmin()" [routerLink]="['/order']" class="dropdown-item">
+                <span>{{'NAVBAR.ADMIN_ORDERS' | translate}}</span>
+                <mat-icon style="position: absolute;right: 0.5em;">shopping_bag</mat-icon>
+              </a>
               <div class="dropdown-divider"></div>
               <a [routerLink]="['/profile']" class="dropdown-item">
                 <span>{{'NAVBAR.CHANGE_PWD' | translate}}</span>

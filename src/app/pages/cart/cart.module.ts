@@ -35,9 +35,9 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule,
 
         PayPalModule.init({
-            clientId: "sb", // Using sandbox for testing purposes only
+            clientId: "AUNogjlAz__6CSfpd5Lu1SOUfxzO1wSMpmpS8mZY7abwmkSypUTMOiOokEUWdJCupMMdHVoeFgLLKtm6", // Using sandbox for testing purposes only
             currency: "EUR",
-            integrationDate: "2021-04-10"
+            integrationDate: "2021-07-07"
         })
     ],
     declarations: [ CartComponent ]
