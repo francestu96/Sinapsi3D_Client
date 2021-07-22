@@ -8,6 +8,7 @@ import { ProductProxy } from 'src/app/services/proxy/product.proxy';
 import { CartProxy } from 'src/app/services/proxy/cart.proxy';
 import { MessageService } from 'src/app/services/message.service';
 import { ProductModalComponent } from './product-modal/product-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-product',
@@ -27,6 +28,7 @@ export class ProductComponent implements OnInit {
         private productProxy: ProductProxy, 
         private cartProxy: CartProxy, 
         private dialog: MatDialog, 
+        private translateService: TranslateService, 
         private messageService: MessageService) {}
 
     ngOnInit() {
@@ -43,7 +45,7 @@ export class ProductComponent implements OnInit {
     addToCart(productId: string): void {
         if(this.quantities[productId] > 0) {
             if (!this.storageService.getIdentity()){
-                const snackBarRef = this.messageService.error("devi accedere per utilizzare il carrello", "Accedi");
+                const snackBarRef = this.messageService.error(this.translateService.instant("PRODUCT.MUST_LOGIN"), this.translateService.instant("PRODUCT.LOGIN"));
 
                 snackBarRef.afterDismissed().subscribe(info => {
                     if (info.dismissedByAction === true) {
@@ -55,7 +57,7 @@ export class ProductComponent implements OnInit {
             this.cartProxy.addUpdate(productId, this.quantities[productId]).subscribe(
                 cart => {
                     const productName = cart.products.map(x => x.product).filter(x => x._id === productId)[0].name;
-                    const snackBarRef = this.messageService.success("\"" + productName + "\" aggiunto!", "Vai al carrello");
+                    const snackBarRef = this.messageService.success("\"" + productName + "\" " + this.translateService.instant("PRODUCT.ITEM_ADDED"), this.translateService.instant("PRODUCT.GO_CART"));
 
                     snackBarRef.afterDismissed().subscribe(info => {
                         if (info.dismissedByAction === true) {
@@ -70,7 +72,7 @@ export class ProductComponent implements OnInit {
                 });
         }
         else{
-            this.messageService.error("la quantità deve essere maggiore di 0");
+            this.messageService.error(this.translateService.instant("PRODUCT.0_QUANTITY"));
         }
     }
 
@@ -81,7 +83,7 @@ export class ProductComponent implements OnInit {
                 if (index !== -1){
                     this.products.splice(index, 1);
                 }
-                this.messageService.success("Prodotto eliminato");
+                this.messageService.success(this.translateService.instant("PRODUCT.ITEM_DELETED"));
             },
             err => this.messageService.error(err.error.message)
         );

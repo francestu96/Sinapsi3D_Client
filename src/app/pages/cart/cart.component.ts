@@ -1,5 +1,6 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ProductModel } from 'src/app/models/ProductModel';
 import { MessageService } from 'src/app/services/message.service';
 import { CartProxy } from 'src/app/services/proxy/cart.proxy';
@@ -24,6 +25,7 @@ export class CartComponent implements OnInit {
         private router: Router,
         private cartProxy: CartProxy, 
         private orderProxy: OrderProxy,
+        private translateService: TranslateService,
         private messageService: MessageService, 
         private storageService: StorageService) { }
 
@@ -70,7 +72,7 @@ export class CartComponent implements OnInit {
                 item.isLoading = false;
             },
             error => {
-                this.messageService.error(error.message);
+                this.messageService.error(this.translateService.instant(error.message));
                 item.isLoading = false
             });
     }
@@ -82,9 +84,9 @@ export class CartComponent implements OnInit {
                 const index = this.pageStruct.indexOf(item);
                 this.pageStruct.splice(index, 1);
                 this.refreshTotalPrice();
-                this.messageService.success("Elemento rimosso dal carrello");
+                this.messageService.success(this.translateService.instant("CART.ITEM_REMOVED"));
             },
-            error => this.messageService.error(error.message),
+            error => this.messageService.error(this.translateService.instant(error.message)),
             () => item.isLoading = false
         )
     }
@@ -124,16 +126,16 @@ export class CartComponent implements OnInit {
 
         this.orderProxy.create(details).subscribe(
             () => {
-                this.cartProxy.delete().subscribe(_ => null, error => this.messageService.error(error.message));
+                this.cartProxy.delete().subscribe(_ => null, error => this.messageService.error(this.translateService.instant(error.message)));
                 this.router.navigate(['/home']);
-                this.messageService.success("Ordine effettuato con successo. Riceverai una mail con maggiori istruzioni!");
+                this.messageService.success(this.translateService.instant("CART.ORDER_SUCCESS"));
             },
-            error => this.messageService.error(error.message)
+            error => this.messageService.error(this.translateService.instant(error.message))
         );
     }
     
-    onCancel(_: OnCancelData): void {    
-        this.messageService.success("Transazione cancellata");
+    onCancel(_: OnCancelData): void { 
+        this.messageService.success(this.translateService.instant("CART.TRX_CANCELED"));
     }
 
     onError(data: OnErrorData): void {    

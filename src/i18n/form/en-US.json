@@ -19,7 +19,23 @@
             "FILL": "Fill in all the fields",
             "FORGOT_PASSWORD": "Forgot Password?",
             "NEW": "Create Account",
-            "SUBMIT": "Submit"
+            "SUBMIT": "Submit",
+            "LOGIN_SUCCESS": "Login success",
+            "ENTER_PASSWORD": "Enter a password",
+            "RESET_PASS": "You will receive new credentials by email",
+            "NO_MATCH_PASSWORD": "Passwords do not match",
+            "PASSWORD_CHANGED": "Password successfully changed",
+            "INVALID_PASSWORD": "Invalid password",
+            "ENTER_OLD_PASSWORD": "Enter old password",
+            "ENTER_NEW_PASSWORD": "Enter new password",
+            "INVALID_OLD_PASSWORD": "Invalid old password",
+            "USER_NOT_FOUND": "User not found",
+            "INVALID_CREDENTIALS": "Invalid credentials",
+            "INVALID_EMAIL": "Invalid Email",
+            "ALREADY_USED_EMAIL": "Already used Email",
+            "GENERIC_ERROR": "We apologize, internal error occured. Please contact us if error repeats!",
+            "ERROR": "Error: ",
+            "CLOSE": "Close"
         }
     }
 }

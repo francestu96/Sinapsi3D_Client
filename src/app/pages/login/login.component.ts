@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'src/app/services/message.service';
 import { AuthProxy } from 'src/app/services/proxy/auth.proxy';
 import { StorageService } from '../../services/storage.service';
@@ -20,6 +21,7 @@ export class LoginComponent {
 
   constructor(
     private authProxy: AuthProxy,
+    private translateService: TranslateService,
     private messageService: MessageService,
     private storageService: StorageService,
     private router: Router,
@@ -28,14 +30,14 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (!this.email || ! this.password){
-      this.errorMessage = 'Inserire credenziali valide';
+      this.errorMessage = 'FORM.INVALID';
       return;
     }
     this.authProxy.signin(this.email, this.password).subscribe((data) => {
         this.storageService.saveToken(data.access_token);
         this.storageService.saveIdentity(data.id_token);
         this.router.navigate(['/home']);
-        this.messageService.success("Accesso avvenuto con successo");
+        this.messageService.success(this.translateService.instant("FORM.LOGIN_SUCCESS"));
       },
       (err) => {
         this.errorMessage =  err.error.message;
@@ -50,7 +52,7 @@ export class LoginComponent {
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.router.navigate(['/home']);
-                this.messageService.success("Riceverai una mail con le nuove credenziali");
+                this.messageService.success("FORM.RESET_PASS");
             }
         });
     }

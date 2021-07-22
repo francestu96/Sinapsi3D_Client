@@ -19,7 +19,23 @@
             "FILL": "Compilare tutti i campi",
             "FORGOT_PASSWORD": "Password dimenticata?",
             "NEW": "Crea Account",
-            "SUBMIT": "Invia"
+            "SUBMIT": "Invia",
+            "LOGIN_SUCCESS": "Accesso avvenuto con successo",
+            "ENTER_PASSWORD": "Inserire una password",
+            "RESET_PASS": "Riceverai le nuove credenziali tramite email",
+            "NO_MATCH_PASSWORD": "Le password non corrispondono",
+            "PASSWORD_CHANGED": "Password cambiata con successo",
+            "INVALID_PASSWORD": "Password non valida",
+            "ENTER_OLD_PASSWORD": "Inserire la vecchia password",
+            "ENTER_NEW_PASSWORD": "Inserire la nuova password",
+            "INVALID_OLD_PASSWORD": "Vecchia password errata",
+            "USER_NOT_FOUND": "Utente non trovato",
+            "INVALID_CREDENTIALS": "Credenziali invalide",
+            "INVALID_EMAIL": "Email non valida",
+            "ALREADY_USED_EMAIL": "Email già utilizzata",
+            "GENERIC_ERROR": "Errore! Ci scusiamo per il disagio, per favore contattateci se l'errore persiste!",
+            "ERROR": "Errore: ",
+            "CLOSE": "Chiudi"
         }
     }
 }

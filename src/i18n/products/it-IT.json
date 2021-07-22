@@ -6,7 +6,16 @@
             "FILTER": "Cerca nel Nome o nella Descrizione del prodotto...",
             "PRICE": "Prezzo",
             "ADD": "Aggiungi dal carrello",
-            "QUANTITY": "Quntità"
+            "QUANTITY": "Quntità",
+            "ADDED_SUCCESS": "Prodotto aggiunto con successo",
+            "ITEM_ADDED": "aggiunto!",
+            "ITEM_DELETED": "Prodotto eliminato",
+            "GO_CART": "Vai al carrello",
+            "MUST_LOGIN": "Devi accedere per utilizzare il carrello",
+            "0_QUANTITY": "La quantità deve essere maggiore di 0",
+            "LOGIN": "Accedi",
+            "NOT_FOUND": "Prodotto non trovato",
+            "GENERIC_ERROR": "Errore! Ci scusiamo per il disagio, per favore contattateci se l'errore persiste!"
         }
     }
 }

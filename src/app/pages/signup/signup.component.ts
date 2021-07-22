@@ -48,15 +48,15 @@ export class SignupComponent implements OnInit {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!this.name || !this.email || !this.password) {
-        this.errorMessage = 'Compilare tutti i campi';
+        this.errorMessage = 'FORM.FILL';
         return false;
     }
     if (!passRegex.test(this.password)) {
-        this.errorMessage = 'Password non valida';
+        this.errorMessage = 'FORM.INVALID_PASSWORD';
         return false;
     }
     if (!emailRegex.test(this.email)) {
-        this.errorMessage = 'Email non valida';
+        this.errorMessage = 'FORM.INVALID_EMAIL';
         return false;
     }
 

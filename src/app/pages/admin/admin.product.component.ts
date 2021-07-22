@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { MatFileUploadComponent } from 'mat-file-upload';
 import { MessageService } from 'src/app/services/message.service';
 import { ProductProxy } from 'src/app/services/proxy/product.proxy';
@@ -18,7 +19,7 @@ export class AdminProductComponent implements OnInit {
     images: File[] = [];
     isLoading = false;
 
-    constructor(private formBuilder: FormBuilder, private messageService: MessageService, private productProxy: ProductProxy) { }
+    constructor(private formBuilder: FormBuilder, private translateService: TranslateService, private messageService: MessageService, private productProxy: ProductProxy) { }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
@@ -44,9 +45,9 @@ export class AdminProductComponent implements OnInit {
                 this.fileUpload.resetFileInput();
                 this.fileUpload.selectedFileText = null;
                 this.formGroup.resetForm();
-                this.messageService.success("Prodotto aggiunto con successo");
+                this.messageService.success(this.translateService.instant('PRODUCT.ADDED_SUCCESS'));
             },
-            err => { this.messageService.error(err.error.message); this.isLoading = false },
+            err => { this.messageService.error(this.translateService.instant(err.error.message)); this.isLoading = false },
             () => this.isLoading = false);
     }
 

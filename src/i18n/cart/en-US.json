@@ -10,7 +10,12 @@
             "NO_ITEMS": "No items in your cart yet",
             "NO_ITEMS_1": "Go to the ",
             "NO_ITEMS_LINK": "Products section",
-            "NO_ITEMS_2": " to buy something!"
+            "NO_ITEMS_2": " to buy something!",
+            "ITEM_REMOVED": "Item removed from cart",
+            "ORDER_SUCCESS": "Order success. You will receive further instruction via Email!",
+            "TRX_CANCELED": "Transacation canceled",
+            "NOT_FOUND": "Cart not found",
+            "GENERIC_ERROR": "We apologize, internal error occured. Please contact us if error repeats!"
         }
     }
 }

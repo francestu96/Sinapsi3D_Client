@@ -21,7 +21,7 @@
                     <small>{{'FORM.TITLE_LOGIN' | translate}}</small>
                   </div>
                   <ng-template #errorTemplate>
-                    <small style="color: #800000;">{{this.errorMessage}}</small>
+                    <small style="color: #800000;">{{this.errorMessage | translate}}</small>
                   </ng-template>
                 </div>
                 <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">

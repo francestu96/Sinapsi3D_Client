@@ -10,7 +10,12 @@
             "NO_ITEMS": "Ancora nessun oggetto nel carrello",
             "NO_ITEMS_1": "Vai alla sezione ",
             "NO_ITEMS_LINK": "Prodotti",
-            "NO_ITEMS_2": " per acquistare qualcosa!"
+            "NO_ITEMS_2": " per acquistare qualcosa!",
+            "ITEM_REMOVED": "Elemento rimosso dal carrello",
+            "ORDER_SUCCESS": "Ordine effettuato con successo. Riceverai maggiori istruzioni tramite Email!",
+            "TRX_CANCELED": "Transazione annullata",
+            "NOT_FOUND": "Carrello non trovato",
+            "GENERIC_ERROR": "Errore! Ci scusiamo per il disagio, per favore contattateci se l'errore persiste!"
         }
     }
 }

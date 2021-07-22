@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MessageService {
-    constructor(private snackBar: MatSnackBar) {}
+    constructor(private snackBar: MatSnackBar, private translateService: TranslateService) {}
 
     success(message: string, action: string = null): MatSnackBarRef<TextOnlySnackBar> {
-        return this.snackBar.open(message, action ? action : "Chiudi", {
+        return this.snackBar.open(message, action ? action : this.translateService.instant("FORM.CLOSE"), {
             duration: 5000,
             horizontalPosition: 'right',
             verticalPosition: 'bottom',
@@ -17,7 +18,7 @@ export class MessageService {
     }
     
     error(message: string, action: string = null): MatSnackBarRef<TextOnlySnackBar> {
-        return this.snackBar.open("Errore: " + message, action ? action : "Chiudi", {
+        return this.snackBar.open(this.translateService.instant("FORM.ERROR") + message, action ? action : this.translateService.instant("FORM.CLOSE"), {
             duration: 5000,
             horizontalPosition: 'right',
             verticalPosition: 'bottom',
@@ -26,7 +27,7 @@ export class MessageService {
     }
 
     genericError(): MatSnackBarRef<TextOnlySnackBar> {
-        return this.snackBar.open("Errore: se l'errore persiste, sarebbe gentile da parte vostra segnalare l'errore ai nostri contatti. Grazie", "Chiudi", {
+        return this.snackBar.open(this.translateService.instant("FORM.GENERIC_ERROR"), this.translateService.instant("FORM.CLOSE"), {
             duration: 5000,
             horizontalPosition: 'right',
             verticalPosition: 'bottom',

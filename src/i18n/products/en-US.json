@@ -6,7 +6,16 @@
             "FILTER": "Search in the Name or in the Description of the product...",
             "PRICE": "Price",
             "ADD": "Add to Cart",
-            "QUANTITY": "Quantity"
+            "QUANTITY": "Quantity",
+            "ADDED_SUCCESS": "Product added successfully",
+            "ITEM_ADDED": "added!",
+            "ITEM_DELETED": "Deleted product",
+            "GO_CART": "Go to cart",
+            "MUST_LOGIN": "You must sign in to add products to cart",
+            "0_QUANTITY": "Quantity must be grater than 0",
+            "LOGIN": "Login",
+            "NOT_FOUND": "Product not found",
+            "GENERIC_ERROR": "We apologize, internal error occured. Please contact us if error repeats!"
         }
     }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'src/app/services/message.service';
 import { AuthProxy } from 'src/app/services/proxy/auth.proxy';
 
@@ -18,6 +19,7 @@ export class ProfileComponent {
 
   constructor(
     private authProxy: AuthProxy,
+    private translateService: TranslateService,
     private messageService: MessageService,
     private router: Router
   ) {}
@@ -26,21 +28,21 @@ export class ProfileComponent {
     const passRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
     if (!this.newPassword || !this.oldPassword || !this.repeatPassword){
-      this.errorMessage = 'Compilare tutti i campi';
+      this.errorMessage = 'FORM.FILL';
       return;
     }
     else if (!passRegex.test(this.newPassword)) {
-        this.errorMessage = 'Password non valida';
+        this.errorMessage = 'FORM.INVALID_PASSWORD';
         return;
     }
     else if (this.newPassword !== this.repeatPassword){
-        this.errorMessage = 'Le password non corrispondono!';
+        this.errorMessage = 'FORM.NO_MATCH_PASSWORD';
         return;
     }
 
     this.authProxy.changePassword(this.oldPassword, this.newPassword).subscribe((data) => {
         this.router.navigate(['/home']);
-        this.messageService.success("Password cambiata con successo");
+        this.messageService.success(this.translateService.instant("FORM.PASSWORD_CHANGED"));
       },
       (err) => {
         this.errorMessage =  err.error.message;
