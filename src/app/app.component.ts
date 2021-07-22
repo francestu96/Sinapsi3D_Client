@@ -28,11 +28,17 @@ export class AppComponent implements OnInit {
             private _translateService: TranslateService,
 		    private _translationLoaderService: TranslationLoaderService,
         ) {
-        this._translateService.addLangs(['it-IT', 'en-US']);
-		this._translateService.setDefaultLang(navigator.language);
-		this._translateService.use(navigator.language);
-		// this._translateService.setDefaultLang('it-IT');
-		// this._translateService.use('it-IT');
+
+        var langs = ['it-IT', 'en-US'];
+        this._translateService.addLangs(langs);
+        if(langs.includes(navigator.language)){
+            this._translateService.setDefaultLang(navigator.language);
+            this._translateService.use(navigator.language);
+        }
+        else{
+            this._translateService.setDefaultLang('it-IT');
+            this._translateService.use('it-IT');
+        }
         
         this._translationLoaderService.loadTranslations('form');
         this._translationLoaderService.loadTranslations('navbar');
