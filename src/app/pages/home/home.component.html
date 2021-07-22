@@ -80,7 +80,7 @@
                 </div>
                 <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)"  [gutterSize]="'10px'" class="mt-5">
                     <mat-grid-tile *ngFor="let image of this.album1; let i=index"  [colspan]="image.cols" [rowspan]="image.rows">
-                        <img [src]="image.thumb" (click)="open(this.album1, i)" class="zoom" style="height: -webkit-fill-available"/>
+                        <img [src]="image.thumb" (click)="open(this.album1, i)" class="zoom" style="height: 100%;"/>
                     </mat-grid-tile>
                 </mat-grid-list>
             </div>
@@ -117,7 +117,7 @@
             </div>
             <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)"  [gutterSize]="'10px'" class="mt-5">
                 <mat-grid-tile *ngFor="let image of this.album2; let i=index" [colspan]="image.cols" [rowspan]="image.rows">
-                    <img [src]="image.thumb" (click)="open(this.album2, i)" class="zoom" style="height: -webkit-fill-available;"/>
+                    <img [src]="image.thumb" (click)="open(this.album2, i)" class="zoom" style="height: 100%;"/>
                 </mat-grid-tile>
             </mat-grid-list>
         </div>
@@ -147,7 +147,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="u-align-right u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                            <div class="u-align-right u-container-style u-layout-cell u-size-30 u-layout-cell-2 d-none d-md-block">
                                 <div class="u-container-layout u-container-layout-2">
                                     <video class="u-expand-resize u-image u-image-circle u-image-1" autoplay loop muted>
                                         <source src="../../../assets/img/home/video.mp4" type="video/mp4">
