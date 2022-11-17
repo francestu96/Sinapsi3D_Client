@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  baseURL: 'http://localhost:1080/api'
+  baseURL: 'sinapsi3d-server.vercel.app/api'
+  // baseURL: 'http://localhost:1080/api'
 };
